@@ -11,16 +11,14 @@
       "address": "0xec46E0EFB2EA8152da0327a5Eb3FF9a43956F13e",
       "chainId": 743111,
       "decimals": 18,
-      "logoURI": "https://optimistic.etherscan.io/token/images/MCDDai_32.png",
+      "logoURI": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/DAI/logo.svg",
       "name": "Hemi Tunneled DAI",
       "symbol": "DAI",
       "extensions": {
         "birthBlock": 71589,
         "bridgeInfo": {
-          "1": {
-            "tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-            "originBridgeAddress": "0xc94b1BEe63A3e101FE5F71C80F912b4F4b055925",
-            "destBridgeAddress": "0x4200000000000000000000000000000000000010"
+          "11155111": {
+            "tokenAddress": "0xFF34B3d4Aee8ddCd6F9AFFFB6Fe49bD371b8a357"
           }
         }
       }
@@ -29,12 +27,46 @@
       "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
       "chainId": 743111,
       "decimals": 18,
-      "logoURI": "https://optimistic.etherscan.io/token/images/weth_28.png",
+      "logoURI": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/WETH/logo.png",
       "name": "Wrapped Ether",
       "symbol": "WETH",
       "extensions": {
         "birthBlock": 195484
       }
+    },
+    {
+      "address": "0x3Adf21A6cbc9ce6D5a3ea401E7Bae9499d391298",
+      "chainId": 743111,
+      "decimals": 6,
+      "extensions": {
+        "birthBlock": 575834,
+        "bridgeInfo": {
+          "11155111": {
+            "tokenAddress": "0xaa8e23fb1079ea71e0a56f48a2aa51851d8433d0"
+          }
+        }
+      },
+      "logoURI":
+      "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDT/logo.png",
+      "name": "Tether",
+      "symbol": "USDT.e"
+    },
+    {
+      "address": "0xD47971C7F5B1067d25cd45d30b2c9eb60de96443",
+      "chainId": 743111,
+      "decimals": 6,
+      "extensions": {
+        "birthBlock": 575823,
+        "bridgeInfo": {
+          "11155111": {
+            "tokenAddress": "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8"
+          }
+        }
+      },
+      "logoURI":
+      "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/logo.png",
+      "name": "USD Coin",
+      "symbol": "USDC.e"
     }
   ]
 }
