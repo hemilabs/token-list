@@ -12,7 +12,7 @@
       "chainId": 743111,
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/DAI/logo.svg",
-      "name": "Hemi Tunneled DAI",
+      "name": "DAI",
       "symbol": "DAI",
       "extensions": {
         "birthBlock": 71589,
