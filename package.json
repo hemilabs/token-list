@@ -20,7 +20,8 @@
   },
   "scripts": {
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "version": "node scripts/sync-version.js && git add ."
   },
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
