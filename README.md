@@ -1,5 +1,7 @@
 # @hemilabs/token-list
 
+![NPM Version](https://img.shields.io/npm/v/%40hemilabs%2Ftoken-list)
+
 List of ERC-20 tokens in the Hemi Network chains.
 
 ## Usage
@@ -19,5 +21,5 @@ npm install @hemilabs/token-list
 and then use it in your code:
 
 ```js
-const hemiTokenList = require('@hemilabs/token-list')
+const hemiTokenList = require("@hemilabs/token-list");
 ```

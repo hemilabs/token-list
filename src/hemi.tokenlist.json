@@ -4,7 +4,7 @@
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 0
+    "patch": 2
   },
   "tokens": [
     {
@@ -46,8 +46,7 @@
           }
         }
       },
-      "logoURI":
-      "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDT/logo.png",
+      "logoURI": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDT/logo.png",
       "name": "Tether",
       "symbol": "USDT.e"
     },
@@ -63,8 +62,7 @@
           }
         }
       },
-      "logoURI":
-      "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/logo.png",
+      "logoURI": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/USDC/logo.png",
       "name": "USD Coin",
       "symbol": "USDC.e"
     }
