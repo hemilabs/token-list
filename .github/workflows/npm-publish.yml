@@ -1,0 +1,11 @@
+name: NPM Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  npm-publish:
+    uses: hemilabs/actions/.github/workflows/npm-publish.yml@main
+    secrets: inherit
