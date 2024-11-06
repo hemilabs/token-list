@@ -4,7 +4,7 @@
   "version": {
     "major": 1,
     "minor": 1,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -175,7 +175,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/link.svg",
-      "name": "ChainLink",
+      "name": "Chainlink",
       "symbol": "LINK"
     },
     {
