@@ -273,6 +273,14 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/comp.svg",
       "name": "Compound",
       "symbol": "COMP"
+    },
+    {
+      "address": "0x4200000000000000000000000000000000000006",
+      "chainId": 43111,
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
+      "name": "Wrapped Ether",
+      "symbol": "WETH"
     }
   ]
 }
