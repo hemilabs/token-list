@@ -3,8 +3,8 @@
   "timestamp": "2024-05-07T22:03:02.686Z",
   "version": {
     "major": 1,
-    "minor": 1,
-    "patch": 1
+    "minor": 2,
+    "patch": 0
   },
   "tokens": [
     {
@@ -27,7 +27,7 @@
       "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
       "chainId": 743111,
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/data/WETH/logo.png",
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
       "name": "Wrapped Ether",
       "symbol": "WETH",
       "extensions": {
@@ -273,6 +273,14 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/comp.svg",
       "name": "Compound",
       "symbol": "COMP"
+    },
+    {
+      "address": "0x4200000000000000000000000000000000000006",
+      "chainId": 43111,
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
+      "name": "Wrapped Ether",
+      "symbol": "WETH"
     }
   ]
 }
