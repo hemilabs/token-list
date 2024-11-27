@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 
 import packageJson from "../package.json" with { type: "json" };
 import tokenList from "../src/hemi.tokenlist.json" with { type: "json" };

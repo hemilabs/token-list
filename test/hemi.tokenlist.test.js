@@ -1,9 +1,9 @@
-import { accessSync } from "node:fs";
 import { createPublicClient, http } from "viem";
 import { describe, it } from "node:test";
 import { erc20Abi } from "viem";
 import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 
 import packageJson from "../package.json" with { type: "json" };
 import tokenList from "../src/hemi.tokenlist.json" with { type: "json" };
@@ -46,7 +46,7 @@ describe("List of tokens", function () {
     describe(`Token ${chainId}:${symbol}`, function () {
       it("should be a valid ERC20", async function () {
         const client = clients[chainId];
-        const read = await Promise.all(
+        const props = await Promise.all(
           ["decimals", "symbol", "name"].map((method) =>
             client.readContract({
               abi: erc20Abi,
@@ -56,14 +56,14 @@ describe("List of tokens", function () {
             }),
           ),
         );
-        assert.deepEqual(read, [decimals, symbol, name]);
+        assert.deepEqual(props, [decimals, symbol, name]);
       });
 
       it("image URL and file should be valid", function () {
         const repoUrl = "https://raw.githubusercontent.com/hemilabs/token-list";
         const filename = symbol.toLowerCase().replace(".e", "");
         assert.equal(logoURI, `${repoUrl}/master/src/logos/${filename}.svg`);
-        accessSync(`src/logos/${filename}.svg`);
+        fs.accessSync(`src/logos/${filename}.svg`);
       });
     });
   });
