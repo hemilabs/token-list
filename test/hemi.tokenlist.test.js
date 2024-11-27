@@ -17,7 +17,7 @@ const clients = Object.fromEntries(
     chain.id,
     createPublicClient({
       chain,
-      transport: http(process.env[`RPC_URL_${chain.id}`]),
+      transport: http(process.env[`EVM_RPC_URL_${chain.id}`]),
     }),
   ]),
 );

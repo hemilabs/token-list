@@ -24,7 +24,7 @@ if (
 try {
   const client = createPublicClient({
     chain: [hemi, hemiSepolia].find((chain) => chain.id == chainId),
-    transport: http(process.env[`RPC_URL_${chainId}`]),
+    transport: http(process.env[`EVM_RPC_URL_${chainId}`]),
   });
 
   const [decimals, symbol, name] = /** @type {[Number,String,string]} */ (
