@@ -11,9 +11,9 @@
       "address": "0xec46E0EFB2EA8152da0327a5Eb3FF9a43956F13e",
       "chainId": 743111,
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/dai.svg",
-      "name": "Dai",
-      "symbol": "DAI",
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/hdai.svg",
+      "name": "Hemi Tunneled DAI",
+      "symbol": "hDAI",
       "extensions": {
         "birthBlock": 71589,
         "bridgeInfo": {
@@ -47,7 +47,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdt.svg",
-      "name": "Tether",
+      "name": "USDT.e",
       "symbol": "USDT.e"
     },
     {
@@ -63,7 +63,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdc.svg",
-      "name": "USD Coin",
+      "name": "USDC.e",
       "symbol": "USDC.e"
     },
     {
@@ -79,7 +79,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/vsp.svg",
-      "name": "Vesper",
+      "name": "VesperToken",
       "symbol": "VSP"
     },
     {
@@ -95,7 +95,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/met.svg",
-      "name": "Metronome",
+      "name": "Metronome2",
       "symbol": "MET"
     },
     {
@@ -127,7 +127,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/dai.svg",
-      "name": "Dai",
+      "name": "Dai Stablecoin",
       "symbol": "DAI"
     },
     {
@@ -143,7 +143,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/wbtc.svg",
-      "name": "wBTC",
+      "name": "Wrapped BTC",
       "symbol": "WBTC"
     },
     {
@@ -175,7 +175,7 @@
         }
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/link.svg",
-      "name": "Chainlink",
+      "name": "ChainLink Token",
       "symbol": "LINK"
     },
     {
