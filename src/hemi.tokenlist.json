@@ -1,6 +1,6 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2024-11-27T20:27:00.112Z",
+  "timestamp": "2024-12-06T20:38:05.942Z",
   "version": {
     "major": 1,
     "minor": 2,
@@ -281,6 +281,21 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
       "name": "Wrapped Ether",
       "symbol": "WETH"
+    },
+    {
+      "address": "0x63D367531B460Da78a9EBBAF6c1FBFC397E5d40A",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x936AB482d6bd111910A42849d3a51Ff80Bb0a711"
+          }
+        }
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/bwajna.svg",
+      "name": "Burn Wrapped AJNA",
+      "symbol": "bwAJNA"
     }
   ]
 }
