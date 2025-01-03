@@ -3,7 +3,7 @@ const formatFiles = "prettier --ignore-unknown --write";
 const sortPackageJson = "better-sort-package-json";
 
 export default {
-  "!(*.{js,json,md,ts,tsx,yml}|package.json)": [eslint, formatFiles],
-  "!package.json": [formatFiles],
+  "!(package).json": [formatFiles],
+  "*.{js,md,ts,yml}": [eslint, formatFiles],
   "package.json": [sortPackageJson, formatFiles],
 };
