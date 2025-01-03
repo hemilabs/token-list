@@ -1,6 +1,6 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2024-12-30T18:52:07.759Z",
+  "timestamp": "2025-01-03T14:53:12.960Z",
   "version": {
     "major": 1,
     "minor": 3,
@@ -311,6 +311,36 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/tbtc.svg",
       "name": "tBTC v2",
       "symbol": "tBTC"
+    },
+    {
+      "address": "0xbB0D083fb1be0A9f6157ec484b6C79E0A4e31C2e",
+      "chainId": 43111,
+      "decimals": 6,
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+          }
+        }
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdt.svg",
+      "name": "USDT",
+      "symbol": "USDT"
+    },
+    {
+      "address": "0xad11a8BEb98bbf61dbb1aa0F6d6F2ECD87b35afA",
+      "chainId": 43111,
+      "decimals": 6,
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          }
+        }
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdc.svg",
+      "name": "Bridged USDC (Stargate)",
+      "symbol": "USDC.e"
     }
   ]
 }

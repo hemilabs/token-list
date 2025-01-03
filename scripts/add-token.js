@@ -1,5 +1,11 @@
-import { createPublicClient, http } from "viem";
-import { erc20Abi } from "viem";
+import {
+  createPublicClient,
+  erc20Abi,
+  getAddress as toChecksum,
+  http,
+  isAddress,
+  isAddressEqual,
+} from "viem";
 import { hemi, hemiSepolia } from "hemi-viem";
 import fs from "node:fs";
 
@@ -12,9 +18,15 @@ try {
 const [chainIdStr, address] = process.argv.slice(2);
 const chainId = Number.parseInt(chainIdStr);
 
+if (!isAddress(address)) {
+  console.error("Invalid address");
+  process.exit(1);
+}
+
 if (
   tokenList.tokens.find(
-    (token) => token.address === address && token.chainId === chainId,
+    (token) =>
+      isAddressEqual(token.address, address) && token.chainId === chainId,
   )
 ) {
   console.log("Token already present");
@@ -22,9 +34,10 @@ if (
 }
 
 try {
+  const chain = [hemi, hemiSepolia].find((chain) => chain.id === chainId);
   const client = createPublicClient({
-    chain: [hemi, hemiSepolia].find((chain) => chain.id == chainId),
-    transport: http(process.env[`EVM_RPC_URL_${chainId}`]),
+    chain,
+    transport: http(),
   });
 
   const [decimals, symbol, name] = /** @type {[Number,String,string]} */ (
@@ -44,7 +57,7 @@ try {
   const repoUrl = "https://raw.githubusercontent.com/hemilabs/token-list";
   const logoURI = `${repoUrl}/master/src/logos/${filename}.svg`;
   tokenList.tokens.push({
-    address,
+    address: toChecksum(address),
     chainId,
     decimals,
     logoURI,
