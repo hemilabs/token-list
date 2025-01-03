@@ -1,7 +1,9 @@
 import fs from "node:fs";
 
-import packageJson from "../package.json" with { type: "json" };
-import tokenList from "../src/hemi.tokenlist.json" with { type: "json" };
+// eslint fails to parse "with { type: "json" }"
+// See https://github.com/eslint/eslint/discussions/15305
+const packageJson = JSON.parse(fs.readFileSync("./package.json"));
+const tokenList = JSON.parse(fs.readFileSync("./src/hemi.tokenlist.json"));
 
 const [major, minor, patch] = packageJson.version.split(".");
 tokenList.version.major = parseInt(major);
