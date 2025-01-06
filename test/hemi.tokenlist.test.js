@@ -5,19 +5,17 @@ import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-import packageJson from "../package.json" with { type: "json" };
-import tokenList from "../src/hemi.tokenlist.json" with { type: "json" };
-
-try {
-  process.loadEnvFile();
-} catch (e) {}
+// eslint fails to parse "with { type: "json" }"
+// See https://github.com/eslint/eslint/discussions/15305
+const packageJson = JSON.parse(fs.readFileSync("./package.json"));
+const tokenList = JSON.parse(fs.readFileSync("./src/hemi.tokenlist.json"));
 
 const clients = Object.fromEntries(
   [hemi, hemiSepolia].map((chain) => [
     chain.id,
     createPublicClient({
       chain,
-      transport: http(process.env[`EVM_RPC_URL_${chain.id}`]),
+      transport: http(),
     }),
   ]),
 );
@@ -50,7 +48,7 @@ describe("List of tokens", function () {
           ["decimals", "symbol", "name"].map((method) =>
             client.readContract({
               abi: erc20Abi,
-              address: /** @type {`0x${string}`} */ (address),
+              address,
               args: [],
               functionName: /** @type {'decimals'|'symbol'|'name'} */ (method),
             }),
