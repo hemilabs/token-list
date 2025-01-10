@@ -5,5 +5,6 @@ const sortPackageJson = "better-sort-package-json";
 export default {
   "!(package).json": [formatFiles],
   "*.{js,md,ts,yml}": [eslint, formatFiles],
+  "*.svg": [formatFiles],
   "package.json": [sortPackageJson, formatFiles],
 };
