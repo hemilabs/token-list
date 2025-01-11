@@ -1,10 +1,10 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-01-06T19:09:48.116Z",
+  "timestamp": "2025-01-10T18:07:50.386Z",
   "version": {
     "major": 1,
-    "minor": 4,
-    "patch": 2
+    "minor": 5,
+    "patch": 0
   },
   "tokens": [
     {
@@ -341,6 +341,17 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdc.svg",
       "name": "Bridged USDC (Stargate)",
       "symbol": "USDC.e"
+    },
+    {
+      "address": "0x36Ab5Dba83d5d470F670BC4c06d7Da685d9afAe7",
+      "chainId": 743111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 2165818
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/hbtc.svg",
+      "name": "HemiBitcoin",
+      "symbol": "hBTC"
     }
   ]
 }
