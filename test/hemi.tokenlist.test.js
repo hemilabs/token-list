@@ -1,6 +1,6 @@
 import { createPublicClient, http } from "viem";
 import { describe, it } from "node:test";
-import { erc20Abi } from "viem";
+import { erc20Abi, isAddress } from "viem";
 import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -38,10 +38,28 @@ describe("List of tokens", function () {
     );
   });
 
-  tokenList.tokens.map(function (token) {
-    const { address, chainId, decimals, logoURI, name, symbol } = token;
+  tokenList.tokens.forEach(function (token) {
+    const {
+      address,
+      chainId,
+      decimals,
+      extensions = {},
+      logoURI,
+      name,
+      symbol,
+    } = token;
 
     describe(`Token ${chainId}:${symbol}`, function () {
+      it("should have all its addresses in the checksum format", function () {
+        // viem's isAddress checks for checksum format
+        assert.ok(isAddress(address));
+
+        // check the bridgeInfo address, if defined
+        Object.values(extensions.bridgeInfo ?? {}).forEach(({ tokenAddress }) =>
+          assert.ok(isAddress(tokenAddress)),
+        );
+      });
+
       it("should be a valid ERC20", async function () {
         const client = clients[chainId];
         const props = await Promise.all(
