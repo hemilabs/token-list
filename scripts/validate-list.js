@@ -32,5 +32,5 @@ validate()
   .then(() => console.info("Schema is valid"))
   .catch(function (err) {
     console.error(err);
-    exit();
+    exit(1);
   });
