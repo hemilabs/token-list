@@ -21,10 +21,7 @@ async function validate() {
     return;
   }
   if (validator.errors) {
-    throw validator.errors.map(function (error) {
-      delete error.data;
-      return error;
-    });
+    throw validator.errors;
   }
 }
 
