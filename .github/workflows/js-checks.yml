@@ -15,23 +15,11 @@ concurrency:
 
 jobs:
   js-checks:
+    uses: hemilabs/actions/.github/workflows/js-checks.yml@main
+
+  validate-list:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: bloq/actions/setup-node-env@v1
-        with:
-          cache: npm
-      - run: npm run --if-present format:check
-      - run: npm run --if-present lint
-      - run: npm run --if-present deps:check
-  run-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: bloq/actions/setup-node-env@v1
-        with:
-          cache: npm
-      - run: npm run test
-        env:
-          EVM_RPC_URL_43111: ${{ secrets.EVM_RPC_URL_43111 }}
-          EVM_RPC_URL_743111: ${{ secrets.WEB3_RPC_743111 }}
+      - uses: hemilabs/actions/setup-node-env@main
+      - run: npm run schema:validate
