@@ -23,6 +23,7 @@
     "lint": "eslint --cache .",
     "prepare": "husky",
     "schema:validate": "node scripts/validate-list.js",
+    "pretest": "npm run schema:validate",
     "test": "node --test",
     "version": "node scripts/sync-version.js && git add ."
   },

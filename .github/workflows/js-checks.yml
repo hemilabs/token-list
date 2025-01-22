@@ -8,18 +8,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
-# The reusable workflow at bloq/actions/.github/workflows/js-checks.yml@v1
-# cannot be used as environment variables must be sent to the test command to
-# overwrite the EVM RPC URL of Hemi mainnet. When this is not needed anymore,
-# the custom workflow should be replaced by the reusable one.
-
 jobs:
   js-checks:
     uses: hemilabs/actions/.github/workflows/js-checks.yml@main
-
-  validate-list:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: hemilabs/actions/setup-node-env@main
-      - run: npm run schema:validate
