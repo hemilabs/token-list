@@ -22,11 +22,15 @@
     "format:check": "prettier --check .",
     "lint": "eslint --cache .",
     "prepare": "husky",
+    "schema:validate": "node scripts/validate-list.js",
+    "pretest": "npm run schema:validate",
     "test": "node --test",
     "version": "node scripts/sync-version.js && git add ."
   },
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
     "better-sort-package-json": "1.1.0",
     "commitlint-config-bloq": "1.1.0",
     "eslint": "8.57.1",
