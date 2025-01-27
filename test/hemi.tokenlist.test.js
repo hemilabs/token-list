@@ -81,6 +81,38 @@ describe("List of tokens", function () {
         assert.equal(logoURI, `${repoUrl}/master/src/logos/${filename}.svg`);
         fs.accessSync(`src/logos/${filename}.svg`);
       });
+
+      it("should have the correct remote token address", async function () {
+        const client = clients[chainId];
+        const tokenAddress =
+          extensions?.bridgeInfo?.[client.chain.sourceId].tokenAddress;
+        if (!tokenAddress) {
+          this.skip();
+          return;
+        }
+
+        const remoteTokenAddress = await client.readContract({
+          abi: [
+            {
+              inputs: [],
+              name: "REMOTE_TOKEN",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+          ],
+          address,
+          args: [],
+          functionName: "REMOTE_TOKEN",
+        });
+        assert.equal(remoteTokenAddress, tokenAddress);
+      });
     });
   });
 });

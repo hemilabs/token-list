@@ -49,6 +49,34 @@ async function addToken() {
       )
     );
 
+    // The remote token address should be read from the "REMOTE_TOKEN" function
+    // as "l1Token" and "remoteToken" are deprecated as per the comments in
+    // OptimismMintableERC20.
+    // And if there is an error getting the remote address, just ignore it.
+    // See: https://github.com/ethereum-optimism/optimism/blob/ca5855220fb2264aa32c882d056dd98da21ac47a/packages/contracts-bedrock/src/universal/OptimismMintableERC20.sol#L23
+    const remoteTokenAddress = await client
+      .readContract({
+        abi: [
+          {
+            inputs: [],
+            name: "REMOTE_TOKEN",
+            outputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ],
+        address,
+        args: [],
+        functionName: "REMOTE_TOKEN",
+      })
+      .catch(() => undefined);
+
     const filename = symbol.toLowerCase().replace(".e", "");
     const repoUrl = "https://raw.githubusercontent.com/hemilabs/token-list";
     const logoURI = `${repoUrl}/master/src/logos/${filename}.svg`;
@@ -56,6 +84,13 @@ async function addToken() {
       address,
       chainId,
       decimals,
+      extensions: remoteTokenAddress && {
+        bridgeInfo: {
+          [chain.sourceId]: {
+            tokenAddress: remoteTokenAddress,
+          },
+        },
+      },
       logoURI,
       name,
       symbol,
