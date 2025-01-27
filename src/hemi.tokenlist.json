@@ -319,7 +319,8 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "birthBlock": 666946
+        "birthBlock": 666946,
+        "tunnel": "stargate"
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdt.svg",
       "name": "USDT",
@@ -330,7 +331,8 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "birthBlock": 623077
+        "birthBlock": 623077,
+        "tunnel": "stargate"
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdc.svg",
       "name": "Bridged USDC (Stargate)",
