@@ -1,6 +1,6 @@
 {
   "name": "@hemilabs/token-list",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "List of ERC-20 tokens in the Hemi Network chains",
   "bugs": {
     "url": "https://github.com/hemilabs/token-list/issues"
@@ -24,8 +24,7 @@
     "prepare": "husky",
     "schema:validate": "node scripts/validate-list.js",
     "pretest": "npm run schema:validate",
-    "test": "node --test",
-    "version": "node scripts/sync-version.js && git add ."
+    "test": "node --test"
   },
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
@@ -40,6 +39,9 @@
     "lint-staged": "15.2.10",
     "prettier": "3.3.3",
     "viem": "^2.21.51"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "type": "module"
 }

@@ -1,2 +1,4 @@
-npm run version
+#! /bin/sh
+
+[ -n "$(node scripts/sync-version.js)" ] && git add src/hemi.tokenlist.json
 lint-staged

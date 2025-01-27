@@ -5,10 +5,10 @@ import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-// eslint fails to parse "with { type: "json" }"
-// See https://github.com/eslint/eslint/discussions/15305
-const packageJson = JSON.parse(fs.readFileSync("./package.json"));
-const tokenList = JSON.parse(fs.readFileSync("./src/hemi.tokenlist.json"));
+const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+const tokenList = JSON.parse(
+  fs.readFileSync("./src/hemi.tokenlist.json", "utf-8"),
+);
 
 const clients = Object.fromEntries(
   [hemi, hemiSepolia].map((chain) => [
@@ -49,7 +49,7 @@ describe("List of tokens", function () {
       symbol,
     } = token;
 
-    describe(`Token ${chainId}:${symbol}`, function () {
+    describe(`Token ${chainId}:${address} (${symbol})`, function () {
       it("should have all its addresses in the checksum format", function () {
         // viem's isAddress checks for checksum format
         assert.ok(isAddress(address));
@@ -80,6 +80,48 @@ describe("List of tokens", function () {
         const filename = symbol.toLowerCase().replace(".e", "");
         assert.equal(logoURI, `${repoUrl}/master/src/logos/${filename}.svg`);
         fs.accessSync(`src/logos/${filename}.svg`);
+      });
+
+      it("should have a valid birth block number", function () {
+        const birthBlock = extensions?.birthBlock;
+        if (!birthBlock) {
+          this.skip();
+          return;
+        }
+
+        assert.ok(Number.isInteger(birthBlock));
+      });
+
+      it("should have the correct remote token address", async function () {
+        const client = clients[chainId];
+        const tokenAddress =
+          extensions?.bridgeInfo?.[client.chain.sourceId].tokenAddress;
+        if (!tokenAddress) {
+          this.skip();
+          return;
+        }
+
+        const remoteTokenAddress = await client.readContract({
+          abi: [
+            {
+              inputs: [],
+              name: "REMOTE_TOKEN",
+              outputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+          ],
+          address,
+          args: [],
+          functionName: "REMOTE_TOKEN",
+        });
+        assert.equal(remoteTokenAddress, tokenAddress);
       });
     });
   });

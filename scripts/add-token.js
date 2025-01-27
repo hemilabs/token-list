@@ -3,36 +3,34 @@ import {
   erc20Abi,
   getAddress as toChecksum,
   http,
-  isAddress,
   isAddressEqual,
 } from "viem";
 import { hemi, hemiSepolia } from "hemi-viem";
 import fs from "node:fs";
 
-// eslint fails to parse "with { type: "json" }"
-// See https://github.com/eslint/eslint/discussions/15305
-const tokenList = JSON.parse(fs.readFileSync("./src/hemi.tokenlist.json"));
+const tokenList = JSON.parse(
+  fs.readFileSync("./src/hemi.tokenlist.json", "utf-8"),
+);
 
 async function addToken() {
-  const [chainIdStr, address] = process.argv.slice(2);
+  const [chainIdStr, addressGiven] = process.argv.slice(2);
   const chainId = Number.parseInt(chainIdStr);
+  const address = toChecksum(addressGiven);
 
-  if (!isAddress(address)) {
-    throw new Error("Invalid address");
-  }
-
-  if (
-    tokenList.tokens.find(
-      (token) =>
-        isAddressEqual(token.address, address) && token.chainId === chainId,
-    )
-  ) {
+  const found = tokenList.tokens.find(
+    (t) => isAddressEqual(t.address, address) && t.chainId === chainId,
+  );
+  if (found) {
     console.log("Token already present");
     return;
   }
 
   try {
     const chain = [hemi, hemiSepolia].find((c) => c.id === chainId);
+    if (!chain) {
+      throw new Error("Unsupported chain");
+    }
+
     const client = createPublicClient({
       chain,
       transport: http(),
@@ -51,17 +49,56 @@ async function addToken() {
       )
     );
 
+    // The remote token address should be read from the "REMOTE_TOKEN" function
+    // as "l1Token" and "remoteToken" are deprecated as per the comments in
+    // OptimismMintableERC20.
+    // And if there is an error getting the remote address, just ignore it.
+    // See: https://github.com/ethereum-optimism/optimism/blob/ca5855220fb2264aa32c882d056dd98da21ac47a/packages/contracts-bedrock/src/universal/OptimismMintableERC20.sol#L23
+    const remoteTokenAddress = await client
+      .readContract({
+        abi: [
+          {
+            inputs: [],
+            name: "REMOTE_TOKEN",
+            outputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ],
+        address,
+        args: [],
+        functionName: "REMOTE_TOKEN",
+      })
+      .catch(() => undefined);
+
     const filename = symbol.toLowerCase().replace(".e", "");
     const repoUrl = "https://raw.githubusercontent.com/hemilabs/token-list";
     const logoURI = `${repoUrl}/master/src/logos/${filename}.svg`;
     tokenList.tokens.push({
-      address: toChecksum(address),
+      address,
       chainId,
       decimals,
+      extensions: remoteTokenAddress && {
+        bridgeInfo: {
+          [chain.sourceId]: {
+            tokenAddress: remoteTokenAddress,
+          },
+        },
+      },
       logoURI,
       name,
       symbol,
     });
+
+    tokenList.tokens
+      .sort((a, b) => a.address.toLowerCase() - b.address.toLowerCase())
+      .sort((a, b) => a.chainId - b.chainId);
 
     fs.writeFileSync(
       "src/hemi.tokenlist.json",

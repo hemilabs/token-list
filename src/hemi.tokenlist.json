@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-01-27T18:08:23.402Z",
+  "timestamp": "2025-01-27T20:27:42.430Z",
   "version": {
     "major": 1,
-    "minor": 6,
+    "minor": 7,
     "patch": 0
   },
   "tokens": [
@@ -42,7 +42,7 @@
         "birthBlock": 575834,
         "bridgeInfo": {
           "11155111": {
-            "tokenAddress": "0xaa8e23fb1079ea71e0a56f48a2aa51851d8433d0"
+            "tokenAddress": "0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0"
           }
         }
       },
@@ -287,6 +287,7 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
+        "birthBlock": 363002,
         "bridgeInfo": {
           "1": {
             "tokenAddress": "0x936Ab482d6bd111910a42849D3A51Ff80BB0A711"
@@ -302,6 +303,7 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
+        "birthBlock": 782510,
         "bridgeInfo": {
           "1": {
             "tokenAddress": "0x18084fbA666a33d37592fA2633fD49a74DD93a88"
@@ -317,11 +319,8 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "bridgeInfo": {
-          "1": {
-            "tokenAddress": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-          }
-        }
+        "birthBlock": 666946,
+        "tunnel": "stargate"
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdt.svg",
       "name": "USDT",
@@ -332,11 +331,8 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "bridgeInfo": {
-          "1": {
-            "tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-          }
-        }
+        "birthBlock": 623077,
+        "tunnel": "stargate"
       },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdc.svg",
       "name": "Bridged USDC (Stargate)",

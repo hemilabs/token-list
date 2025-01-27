@@ -3,9 +3,9 @@ import addFormats from "ajv-formats";
 import fs from "node:fs";
 import { exit } from "node:process";
 
-// eslint fails to parse "with { type: "json" }"
-// See https://github.com/eslint/eslint/discussions/15305
-const tokenList = JSON.parse(fs.readFileSync("./src/hemi.tokenlist.json"));
+const tokenList = JSON.parse(
+  fs.readFileSync("./src/hemi.tokenlist.json", "utf-8"),
+);
 
 const schemaUrl =
   "https://raw.githubusercontent.com/Uniswap/token-lists/main/src/tokenlist.schema.json";
