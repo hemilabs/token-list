@@ -24,8 +24,7 @@
     "prepare": "husky",
     "schema:validate": "node scripts/validate-list.js",
     "pretest": "npm run schema:validate",
-    "test": "node --test",
-    "version": "node scripts/sync-version.js && git add ."
+    "test": "node --test"
   },
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
