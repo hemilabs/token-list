@@ -5,10 +5,10 @@ import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-// eslint fails to parse "with { type: "json" }"
-// See https://github.com/eslint/eslint/discussions/15305
-const packageJson = JSON.parse(fs.readFileSync("./package.json"));
-const tokenList = JSON.parse(fs.readFileSync("./src/hemi.tokenlist.json"));
+const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+const tokenList = JSON.parse(
+  fs.readFileSync("./src/hemi.tokenlist.json", "utf-8"),
+);
 
 const clients = Object.fromEntries(
   [hemi, hemiSepolia].map((chain) => [

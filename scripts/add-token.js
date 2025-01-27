@@ -9,9 +9,9 @@ import {
 import { hemi, hemiSepolia } from "hemi-viem";
 import fs from "node:fs";
 
-// eslint fails to parse "with { type: "json" }"
-// See https://github.com/eslint/eslint/discussions/15305
-const tokenList = JSON.parse(fs.readFileSync("./src/hemi.tokenlist.json"));
+const tokenList = JSON.parse(
+  fs.readFileSync("./src/hemi.tokenlist.json", "utf-8"),
+);
 
 async function addToken() {
   const [chainIdStr, address] = process.argv.slice(2);
