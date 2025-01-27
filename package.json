@@ -40,5 +40,8 @@
     "prettier": "3.3.3",
     "viem": "^2.21.51"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "type": "module"
 }
