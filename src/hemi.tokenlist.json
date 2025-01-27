@@ -1,6 +1,6 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-01-24T14:24:44.166Z",
+  "timestamp": "2025-01-27T18:08:23.402Z",
   "version": {
     "major": 1,
     "minor": 6,
@@ -424,6 +424,18 @@
         "birthBlock": 792952,
         "protocol": "uniRouter"
       }
+    },
+    {
+      "address": "0xe3C0FF176eF92FC225096C6d1788cCB818808b35",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 914253,
+        "protocol": "nodeDao"
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/obtc.svg",
+      "name": "Obelisk BTC",
+      "symbol": "oBTC"
     }
   ]
 }
