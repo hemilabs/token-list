@@ -49,7 +49,7 @@ describe("List of tokens", function () {
       symbol,
     } = token;
 
-    describe(`Token ${chainId}:${symbol}`, function () {
+    describe(`Token ${chainId}:${address} (${symbol})`, function () {
       it("should have all its addresses in the checksum format", function () {
         // viem's isAddress checks for checksum format
         assert.ok(isAddress(address));
