@@ -96,6 +96,10 @@ async function addToken() {
       symbol,
     });
 
+    tokenList.tokens
+      .sort((a, b) => a.address.toLowerCase() - b.address.toLowerCase())
+      .sort((a, b) => a.chainId - b.chainId);
+
     fs.writeFileSync(
       "src/hemi.tokenlist.json",
       JSON.stringify(tokenList, null, 2),
