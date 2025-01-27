@@ -3,7 +3,6 @@ import {
   erc20Abi,
   getAddress as toChecksum,
   http,
-  isAddress,
   isAddressEqual,
 } from "viem";
 import { hemi, hemiSepolia } from "hemi-viem";
@@ -14,25 +13,24 @@ const tokenList = JSON.parse(
 );
 
 async function addToken() {
-  const [chainIdStr, address] = process.argv.slice(2);
+  const [chainIdStr, addressGiven] = process.argv.slice(2);
   const chainId = Number.parseInt(chainIdStr);
+  const address = toChecksum(addressGiven);
 
-  if (!isAddress(address)) {
-    throw new Error("Invalid address");
-  }
-
-  if (
-    tokenList.tokens.find(
-      (token) =>
-        isAddressEqual(token.address, address) && token.chainId === chainId,
-    )
-  ) {
+  const found = tokenList.tokens.find(
+    (t) => isAddressEqual(t.address, address) && t.chainId === chainId,
+  );
+  if (found) {
     console.log("Token already present");
     return;
   }
 
   try {
     const chain = [hemi, hemiSepolia].find((c) => c.id === chainId);
+    if (!chain) {
+      throw new Error("Unsupported chain");
+    }
+
     const client = createPublicClient({
       chain,
       transport: http(),
@@ -55,7 +53,7 @@ async function addToken() {
     const repoUrl = "https://raw.githubusercontent.com/hemilabs/token-list";
     const logoURI = `${repoUrl}/master/src/logos/${filename}.svg`;
     tokenList.tokens.push({
-      address: toChecksum(address),
+      address,
       chainId,
       decimals,
       logoURI,
