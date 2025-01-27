@@ -82,6 +82,16 @@ describe("List of tokens", function () {
         fs.accessSync(`src/logos/${filename}.svg`);
       });
 
+      it("should have a valid birth block number", function () {
+        const birthBlock = extensions?.birthBlock;
+        if (!birthBlock) {
+          this.skip();
+          return;
+        }
+
+        assert.ok(Number.isInteger(birthBlock));
+      });
+
       it("should have the correct remote token address", async function () {
         const client = clients[chainId];
         const tokenAddress =
