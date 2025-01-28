@@ -5,6 +5,8 @@ import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
+import { getRemoteToken } from "../scripts/get-remote-token.js";
+
 const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 const tokenList = JSON.parse(
   fs.readFileSync("./src/hemi.tokenlist.json", "utf-8"),
@@ -101,27 +103,8 @@ describe("List of tokens", function () {
           return;
         }
 
-        const remoteTokenAddress = await client.readContract({
-          abi: [
-            {
-              inputs: [],
-              name: "REMOTE_TOKEN",
-              outputs: [
-                {
-                  internalType: "address",
-                  name: "",
-                  type: "address",
-                },
-              ],
-              stateMutability: "view",
-              type: "function",
-            },
-          ],
-          address,
-          args: [],
-          functionName: "REMOTE_TOKEN",
-        });
-        assert.equal(remoteTokenAddress, tokenAddress);
+        const remoteToken = await getRemoteToken(client, address);
+        assert.equal(remoteToken, tokenAddress);
       });
     });
   });
