@@ -240,6 +240,17 @@
       "symbol": "M-BTC"
     },
     {
+      "address": "0xAA40c0c7644e0b2B224509571e10ad20d9C4ef28",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 1125154
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/hemibtc.svg",
+      "name": "Hemi Bitcoin",
+      "symbol": "hemiBTC"
+    },
+    {
       "address": "0xad11a8BEb98bbf61dbb1aa0F6d6F2ECD87b35afA",
       "chainId": 43111,
       "decimals": 6,
@@ -381,7 +392,7 @@
       "extensions": {
         "birthBlock": 2165818
       },
-      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/hbtc.svg",
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/hemibtc.svg",
       "name": "HemiBitcoin",
       "symbol": "hBTC"
     },
