@@ -249,6 +249,17 @@
       }
     },
     {
+      "address": "0x93919784C523f39CACaa98Ee0a9d96c3F32b593e",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 971348
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/brbtc.svg",
+      "name": "brBTC",
+      "symbol": "brBTC"
+    },
+    {
       "address": "0x98D6E32f3092D39A6c0B36062cC9EB1E52Ccc99D",
       "chainId": 43111,
       "decimals": 8,
