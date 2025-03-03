@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-02-14T18:27:35.910Z",
+  "timestamp": "2025-03-03T20:09:15.197Z",
   "version": {
     "major": 1,
-    "minor": 10,
+    "minor": 11,
     "patch": 0
   },
   "tokens": [
@@ -11,7 +11,9 @@
       "address": "0x027a9d301FB747cd972CFB29A63f3BDA551DFc5c",
       "chainId": 43111,
       "decimals": 18,
-      "extensions": { "birthBlock": 1129497 },
+      "extensions": {
+        "birthBlock": 1129497
+      },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/bridged-egeth.svg",
       "name": "Bridged egETH",
       "symbol": "Bridged egETH"
