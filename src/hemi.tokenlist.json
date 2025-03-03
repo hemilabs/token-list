@@ -8,6 +8,15 @@
   },
   "tokens": [
     {
+      "address": "0x027a9d301FB747cd972CFB29A63f3BDA551DFc5c",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": { "birthBlock": 1129497 },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/bridged-egeth.svg",
+      "name": "Bridged egETH",
+      "symbol": "Bridged egETH"
+    },
+    {
       "address": "0x03C7054BCB39f7b2e5B2c7AcB37583e32D70Cfa3",
       "chainId": 43111,
       "decimals": 8,

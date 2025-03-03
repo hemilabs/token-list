@@ -54,7 +54,11 @@ async function addToken() {
       () => undefined,
     );
 
-    const filename = symbol.toLowerCase().replace(".e", "");
+    const filename = symbol
+      .toLowerCase()
+      .replace(".e", "")
+      .replaceAll(" ", "-")
+      .toLowerCase();
     const repoUrl = "https://raw.githubusercontent.com/hemilabs/token-list";
     const logoURI = `${repoUrl}/master/src/logos/${filename}.svg`;
     tokenList.tokens.push({
