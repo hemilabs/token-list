@@ -1,12 +1,23 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-02-14T18:27:35.910Z",
+  "timestamp": "2025-03-03T20:09:15.197Z",
   "version": {
     "major": 1,
-    "minor": 10,
+    "minor": 11,
     "patch": 0
   },
   "tokens": [
+    {
+      "address": "0x027a9d301FB747cd972CFB29A63f3BDA551DFc5c",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "birthBlock": 1129497
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/bridged-egeth.svg",
+      "name": "Bridged egETH",
+      "symbol": "Bridged egETH"
+    },
     {
       "address": "0x03C7054BCB39f7b2e5B2c7AcB37583e32D70Cfa3",
       "chainId": 43111,
@@ -22,6 +33,17 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/wbtc.svg",
       "name": "Wrapped BTC",
       "symbol": "WBTC"
+    },
+    {
+      "address": "0x0Af3EC6F9592C193196bEf220BC0Ce4D9311527D",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 1187223
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/remote-bridged-mbtc.svg",
+      "name": "Liquid Staked BTC",
+      "symbol": "Remote Bridged mBTC"
     },
     {
       "address": "0x12B6e6FC45f81cDa81d2656B974E8190e4ab8D93",
@@ -225,6 +247,17 @@
         "birthBlock": 629450,
         "protocol": "exSat"
       }
+    },
+    {
+      "address": "0x93919784C523f39CACaa98Ee0a9d96c3F32b593e",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 971348
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/brbtc.svg",
+      "name": "brBTC",
+      "symbol": "brBTC"
     },
     {
       "address": "0x98D6E32f3092D39A6c0B36062cC9EB1E52Ccc99D",
