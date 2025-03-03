@@ -339,6 +339,15 @@
       "symbol": "USDT"
     },
     {
+      "address": "0xc3eACf0612346366Db554C991D7858716db09f58",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": { "birthBlock": 671728 },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/rseth.svg",
+      "name": "KelpDao Restaked ETH",
+      "symbol": "rsETH"
+    },
+    {
       "address": "0xc4a20a608616F18aA631316eEDa9Fb62d089361e",
       "chainId": 43111,
       "decimals": 18,
