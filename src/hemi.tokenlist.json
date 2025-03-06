@@ -1,10 +1,10 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-03-03T20:09:15.197Z",
+  "timestamp": "2025-03-06T02:52:06.580Z",
   "version": {
     "major": 1,
     "minor": 11,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -342,7 +342,9 @@
       "address": "0xc3eACf0612346366Db554C991D7858716db09f58",
       "chainId": 43111,
       "decimals": 18,
-      "extensions": { "birthBlock": 671728 },
+      "extensions": {
+        "birthBlock": 671728
+      },
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/rseth.svg",
       "name": "KelpDao Restaked ETH",
       "symbol": "rsETH"
