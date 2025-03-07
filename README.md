@@ -2,7 +2,7 @@
 
 ![NPM Version](https://img.shields.io/npm/v/%40hemilabs%2Ftoken-list)
 
-List of ERC-20 tokens in the Hemi Network chains.
+List of ERC-20 tokens in the Hemi chains.
 
 ## Usage
 
