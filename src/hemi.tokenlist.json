@@ -1,10 +1,10 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-03-06T02:52:06.580Z",
+  "timestamp": "2025-03-10T16:53:02.050Z",
   "version": {
     "major": 1,
-    "minor": 11,
-    "patch": 1
+    "minor": 12,
+    "patch": 0
   },
   "tokens": [
     {
@@ -434,15 +434,26 @@
       }
     },
     {
+      "address": "0xF9775085d726E782E83585033B58606f7731AB18",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 971388
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/unibtc.svg",
+      "name": "uniBTC",
+      "symbol": "uniBTC"
+    },
+    {
       "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
       "chainId": 743111,
       "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
-      "name": "Wrapped Ether",
-      "symbol": "WETH",
       "extensions": {
         "birthBlock": 195484
-      }
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
+      "name": "Wrapped Ether",
+      "symbol": "WETH"
     },
     {
       "address": "0x36Ab5Dba83d5d470F670BC4c06d7Da685d9afAe7",
