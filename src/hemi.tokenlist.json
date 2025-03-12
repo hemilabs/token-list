@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-03-10T16:53:02.050Z",
+  "timestamp": "2025-03-12T13:46:06.897Z",
   "version": {
     "major": 1,
-    "minor": 12,
+    "minor": 13,
     "patch": 0
   },
   "tokens": [
@@ -408,6 +408,17 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/obtc.svg",
       "name": "Obelisk BTC",
       "symbol": "oBTC"
+    },
+    {
+      "address": "0xe85411C030fB32A9D8b14Bbbc6CB19417391F711",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "birthBlock": 1247968
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/subtc.svg",
+      "name": "Sumerian BTC",
+      "symbol": "suBTC"
     },
     {
       "address": "0xF469fBD2abcd6B9de8E169d128226C0Fc90a012e",
