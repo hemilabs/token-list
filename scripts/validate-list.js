@@ -10,28 +10,24 @@ const tokenList = JSON.parse(
 const schemaUrl =
   "https://raw.githubusercontent.com/Uniswap/token-lists/main/src/tokenlist.schema.json";
 
-// Some tokens are invalid (they were deployed with a schema that doesn't match the expected Uniswap list).
-// So we must exclude these.
-// TODO see https://github.com/hemilabs/token-list/issues/41
-const tokenAddressToExclude = [
-  // Remote Bridged mBTC
-  "0x0Af3EC6F9592C193196bEf220BC0Ce4D9311527D",
-  // Bridged egETH
-  "0x027a9d301FB747cd972CFB29A63f3BDA551DFc5c",
-];
-
 // See https://github.com/uniswap/token-lists?tab=readme-ov-file#validating-token-lists
 async function validate() {
   const ajv = new Ajv({ allErrors: true, verbose: true });
   addFormats(ajv);
   const schema = await fetch(schemaUrl).then((r) => r.json());
+
+  // Some tokens contain spaces in their symbols, which is invalid according to
+  // the token-list schema by Uniswap. So to work around those cases, the
+  // matching pattern is slightly modified on the fly here.
+  const condition = schema.definitions.TokenInfo.properties.symbol.anyOf.find(
+    ({ pattern }) => pattern === "^\\S+$",
+  );
+  if (condition) {
+    condition.pattern = "^\\S+( |\\S+)*$";
+  }
+
   const validator = ajv.compile(schema);
-  const valid = validator({
-    ...tokenList,
-    tokens: tokenList.tokens.filter(
-      (token) => !tokenAddressToExclude.includes(token.address),
-    ),
-  });
+  const valid = validator(tokenList);
   if (valid) {
     return;
   }
