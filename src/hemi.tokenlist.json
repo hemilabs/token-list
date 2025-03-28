@@ -249,6 +249,17 @@
       }
     },
     {
+      "address": "0x8970a6A9Eae065aA81a94E86ebCAF4F3d4dd6DA1",
+      "chainId": 43111,
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/yncobtck.png",
+      "name": "YieldNest Restaked Coffer BTC - Kernel",
+      "symbol": "ynCoBTCk",
+      "extensions": {
+        "birthBlock": 1428240
+      }
+    },
+    {
       "address": "0x93919784C523f39CACaa98Ee0a9d96c3F32b593e",
       "chainId": 43111,
       "decimals": 8,

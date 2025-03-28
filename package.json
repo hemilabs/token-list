@@ -20,6 +20,7 @@
   },
   "scripts": {
     "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
     "lint": "eslint --cache .",
     "prepare": "husky",
     "schema:validate": "node scripts/validate-list.js",
