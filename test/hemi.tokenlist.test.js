@@ -91,8 +91,7 @@ describe("List of tokens", function () {
           .toLowerCase();
 
         const filepath = logoURI.match(
-          // eslint-disable-next-line no-useless-escape
-          new RegExp(`^${repoUrl}/master/src/logos/${filename}\.(svg|png)$`),
+          new RegExp(`^${repoUrl}/master/src/logos/${filename}\\.(svg|png)$`),
         );
         assert.notEqual(filepath, null);
         fs.accessSync(filepath[0].replace(`${repoUrl}/master/`, ""));
