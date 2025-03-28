@@ -1,6 +1,6 @@
 {
   "name": "@hemilabs/token-list",
-  "version": "1.13.1",
+  "version": "1.14.0",
   "description": "List of ERC-20 tokens in the Hemi chains",
   "bugs": {
     "url": "https://github.com/hemilabs/token-list/issues"
@@ -20,6 +20,7 @@
   },
   "scripts": {
     "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
     "lint": "eslint --cache .",
     "prepare": "husky",
     "schema:validate": "node scripts/validate-list.js",

@@ -89,8 +89,12 @@ describe("List of tokens", function () {
           .replace(".e", "")
           .replaceAll(" ", "-")
           .toLowerCase();
-        assert.equal(logoURI, `${repoUrl}/master/src/logos/${filename}.svg`);
-        fs.accessSync(`src/logos/${filename}.svg`);
+
+        const filepath = logoURI.match(
+          new RegExp(`^${repoUrl}/master/src/logos/${filename}\\.(svg|png)$`),
+        );
+        assert.notEqual(filepath, null);
+        fs.accessSync(filepath[0].replace(`${repoUrl}/master/`, ""));
       });
 
       it("should have a valid birth block number", function () {

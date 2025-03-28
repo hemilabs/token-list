@@ -1,10 +1,10 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-03-17T18:48:58.991Z",
+  "timestamp": "2025-03-28T15:59:58.275Z",
   "version": {
     "major": 1,
-    "minor": 13,
-    "patch": 1
+    "minor": 14,
+    "patch": 0
   },
   "tokens": [
     {
@@ -246,6 +246,17 @@
       "extensions": {
         "birthBlock": 629450,
         "protocol": "exSat"
+      }
+    },
+    {
+      "address": "0x8970a6A9Eae065aA81a94E86ebCAF4F3d4dd6DA1",
+      "chainId": 43111,
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/yncobtck.png",
+      "name": "YieldNest Restaked Coffer BTC - Kernel",
+      "symbol": "ynCoBTCk",
+      "extensions": {
+        "birthBlock": 1428240
       }
     },
     {
