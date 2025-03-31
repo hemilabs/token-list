@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-03-28T15:59:58.275Z",
+  "timestamp": "2025-03-31T15:05:32.985Z",
   "version": {
     "major": 1,
-    "minor": 14,
+    "minor": 15,
     "patch": 0
   },
   "tokens": [
@@ -503,6 +503,22 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdt.svg",
       "name": "USDT.e",
       "symbol": "USDT.e"
+    },
+    {
+      "address": "0x931d9e210530184C321EA4ee6238cCB4D0AB5236",
+      "chainId": 743111,
+      "decimals": 6,
+      "extensions": {
+        "birthBlock": 2908277,
+        "bridgeInfo": {
+          "11155111": {
+            "tokenAddress": "0x48589961e8474B47baB878E4844BAB827Ea73A1e"
+          }
+        }
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/rusdc-hemi.png",
+      "name": "rUSDC-hemi",
+      "symbol": "rUSDC-hemi"
     },
     {
       "address": "0xD47971C7F5B1067d25cd45d30b2c9eb60de96443",
