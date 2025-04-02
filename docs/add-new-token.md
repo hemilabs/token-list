@@ -1,21 +1,19 @@
-# Adding New Token to the List
+# Adding a New Token to the List
 
-The goal of this guide is walk you through the steps needed to add a new token to the token list.
+The goal of this guide is to walk you through the steps needed to add a new token to the token list.
 
 ## Before you begin
 
-You need to have some informations about the token you want to add to the list before you begin this tutorial and they are:
+You need to have some information about the token you want to add to the list before you begin this process:
 
 1. Chain ID
 
 The new token can be added to testnet and/or mainnet and the chain ID for each is the following:
 
-```json
-Testnet: 743111
-Mainnet: 43111
-```
+- Testnet: 743111
+- Mainnet: 43111
 
-> If you want to add the token to both testnet and mainnet you need to execute these steps one time for each chain (one for testnet and another for mainnet).
+> If you want to add the token to both testnet and mainnet you need to execute these steps for each chain (one for testnet and another for mainnet).
 
 1. Token Address
 
@@ -27,7 +25,7 @@ The new token's smart contract must already be deployed in the chain you want to
 
 ## Step 1 - Run the Add Token Script
 
-There is a script that automates the process of adding new tokens to the list and you just need use the `chain-id` and `address` you collected in the previous step:
+There is a script that automates the process of adding new tokens to the list and you just need to use the `chain-id` and `address` you collected in the previous step:
 
 ```sh
 node scripts/add-token <chain-id> <address>
@@ -37,7 +35,7 @@ node scripts/add-token <chain-id> <address>
 
 The script will automatically add the information about the new token to [./src/hemi.tokenlist.json](../src/hemi.tokenlist.json) file as shown below:
 
-```json
+```jsonc
 // hemi.tokenlist.json
 ...
 {
@@ -69,7 +67,7 @@ Some important token information is not gathered by the `add-token` script and n
 
 You can get the `birthBlock` number from Hemi Explorer, just check the block number of the transaction that created the token smart contract and add it to the JSON file as follows:
 
-```json
+```jsonc
 ...
 {
     "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
@@ -89,7 +87,7 @@ You can get the `birthBlock` number from Hemi Explorer, just check the block num
 
 If the new token will be used for the tunnel you also need to add the `bridgeInfo` data to the JSON file (if it does not have it already).
 
-```json
+```jsonc
 ...
 {
     "address": "0x3Adf21A6cbc9ce6D5a3ea401E7Bae9499d391298",
@@ -110,42 +108,18 @@ If the new token will be used for the tunnel you also need to add the `bridgeInf
 ...
 ```
 
-## Step 4 - Run Lint and Test Scripts
+## Step 4 - Commit Changes
 
-To verify that all your changes are correct you can run the scripts below:
-
-### Format check
-
-```sh
-npm run format:check
-```
-
-### Linting
-
-```sh
-npm run lint
-```
-
-### Unit Tests
-
-```sh
-npm test
-```
-
-If everything is ok with these checks you can proceed to the next step.
-
-## Step 5 - Commit Changes
-
-Create a commit with your changes:
+Create a commit with your changes (it must be signed):
 
 ```sh
 git add <files-path>
 git commit -S -m "Added new token <token-name>"
 ```
 
-> The commit must be signed
+The changes you did in the code will be checked automatically in terms of formating, linting and unit tests. If one of these checks fail the commit will not be done and you will need to fix the problems before commiting again.
 
-## Step 6 - Bump Package Minor Version
+## Step 5 - Bump Package Minor Version
 
 You can only use the new token you added if you generate a new package version for it and that can be done by running:
 

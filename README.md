@@ -23,3 +23,7 @@ and then use it in your code:
 ```js
 const hemiTokenList = require("@hemilabs/token-list");
 ```
+
+## Adding a New Token to the List
+
+To add a new token to the list just follow [this guide](./docs/add-new-token.md)
