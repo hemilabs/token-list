@@ -338,6 +338,17 @@
       "symbol": "AAVE"
     },
     {
+      "address": "0xb4818BB69478730EF4e33Cc068dD94278e2766cB",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "birthBlock": 1191831
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/satusd.png",
+      "name": "Satoshi Stablecoin V2",
+      "symbol": "satUSD"
+    },
+    {
       "address": "0xbB0D083fb1be0A9f6157ec484b6C79E0A4e31C2e",
       "chainId": 43111,
       "decimals": 6,
