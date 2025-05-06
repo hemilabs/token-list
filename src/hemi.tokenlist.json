@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-04-09T17:17:51.213Z",
+  "timestamp": "2025-05-06T18:26:10.249Z",
   "version": {
     "major": 1,
-    "minor": 16,
+    "minor": 17,
     "patch": 0
   },
   "tokens": [
@@ -17,6 +17,22 @@
       "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/bridged-egeth.svg",
       "name": "Bridged egETH",
       "symbol": "Bridged egETH"
+    },
+    {
+      "address": "0x028DE74e2fE336511A8E5FAb0426D1cfD5110DBb",
+      "chainId": 43111,
+      "decimals": 6,
+      "extensions": {
+        "birthBlock": 1686431,
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x68749665FF8D2d112Fa859AA293F07A622782F38"
+          }
+        }
+      },
+      "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/xaut.svg",
+      "name": "Tether Gold",
+      "symbol": "XAUt"
     },
     {
       "address": "0x03C7054BCB39f7b2e5B2c7AcB37583e32D70Cfa3",
