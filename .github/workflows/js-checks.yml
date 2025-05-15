@@ -4,10 +4,13 @@ on:
   pull_request:
   push:
 
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
   js-checks:
-    uses: hemilabs/actions/.github/workflows/js-checks.yml@01a748b9e1b966ae64d2a7b146ff7e4700dc1da5
+    uses: hemilabs/actions/.github/workflows/js-checks.yml@v1
