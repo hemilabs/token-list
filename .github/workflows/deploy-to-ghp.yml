@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_run:
+    branches:
+      - master
+    types:
+      - completed
+    workflows:
+      - "NPM Publish"
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./scripts/build-ghp.sh
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: "public"
+      - id: deployment
+        uses: actions/deploy-pages@v4
