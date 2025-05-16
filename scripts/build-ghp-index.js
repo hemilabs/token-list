@@ -33,7 +33,7 @@ const row = ({ name, chainId, symbol, address, logoURI }) => `
 </tr>
 `;
 
-const page = ({ name, tokens }) => `
+const page = ({ name, tokens, version }) => `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +74,7 @@ const page = ({ name, tokens }) => `
   <section class="flex flex-col items-center">
     <img class="my-12" src="assets/hemi-logo-orange.svg" height="131" width="132" alt="Hemi" />
     <h1 class="max-w-xl text-5xl text-center font-semibold">Explore tokens on the Hemi networks</h1>
-    <table class="max-w-full overflow-hidden mt-14 mb-20 rounded-xl shadow-md">
+    <table class="max-w-full overflow-hidden mt-14 rounded-xl shadow-md">
       <thead class="hidden lg:table-header-group h-11 border-b bg-zinc-100">
         <tr>
           <th class="px-4 py-3 text-left font-normal">Name</th>
@@ -92,6 +92,13 @@ const page = ({ name, tokens }) => `
       </tbody>
     </table>
   </section>
+  <footer class="max-w-5xl mx-auto text-center text-sm text-neutral-500 py-2.5">
+    <p>
+      <a class="hover:text-neutral-700" href="https://github.com/hemilabs/token-list/releases/tag/v${version.major}.${version.minor}.${version.patch}">
+        Token list v${version.major}.${version.minor}.${version.patch}
+      </a>
+    </p>
+  </footer>
 </body>
 
 </html>

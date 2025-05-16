@@ -1,10 +1,13 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
+  workflow_run:
     branches:
-      - "master"
-  workflow_dispatch:
+      - master
+    types:
+      - completed
+    workflows:
+      - "NPM Publish"
 
 permissions:
   contents: read
@@ -17,6 +20,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
