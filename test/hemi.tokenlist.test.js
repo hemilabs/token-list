@@ -83,7 +83,7 @@ describe("List of tokens", function () {
           this.skip();
           return;
         }
-        const repoUrl = "https://raw.githubusercontent.com/hemilabs/token-list";
+        const pagesUrl = "https://hemilabs.github.io/token-list";
         const filename = symbol
           .toLowerCase()
           .replace(".e", "")
@@ -91,10 +91,12 @@ describe("List of tokens", function () {
           .toLowerCase();
 
         const filepath = logoURI.match(
-          new RegExp(`^${repoUrl}/master/src/logos/${filename}\\.(svg|png)$`),
+          new RegExp(
+            `^${pagesUrl.replaceAll(".", "\\.")}/logos/${filename}\\.(svg|png)$`,
+          ),
         );
         assert.notEqual(filepath, null);
-        fs.accessSync(filepath[0].replace(`${repoUrl}/master/`, ""));
+        fs.accessSync(filepath[0].replace(`${pagesUrl}/`, "src/"));
       });
 
       it("should have a valid birth block number", function () {
