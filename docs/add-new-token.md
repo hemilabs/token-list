@@ -42,7 +42,7 @@ The script will automatically add the information about the new token to [./src/
     "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
     "chainId": 743111,
     "decimals": 18,
-    "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
+    "logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
     "name": "Wrapped Ether",
     "symbol": "WETH"
 }
@@ -54,7 +54,7 @@ The script will automatically add the information about the new token to [./src/
 If you pay attention to the information added by the script in the previous step it has the `logoURI` for the new token and you need to add the image file related to it to the [./src/logos](../src/logos) directory.
 
 ```json
-"logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
+"logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
 ```
 
 > The token logo can be an SVG or PNG file (it sets `svg` as default in the `logoURI`, but you can change it to `png` if needed)
@@ -76,7 +76,7 @@ You can get the `birthBlock` number from Hemi Explorer, just check the block num
     "extensions": {
         "birthBlock": 195484 // <------
     },
-    "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/weth.svg",
+    "logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
     "name": "Wrapped Ether",
     "symbol": "WETH"
 }
@@ -101,7 +101,7 @@ If the new token will be used for the tunnel you also need to add the `bridgeInf
             }
         }
     },
-    "logoURI": "https://raw.githubusercontent.com/hemilabs/token-list/master/src/logos/usdt.svg",
+    "logoURI": "https://hemilabs.github.io/token-list/logos/usdt.svg",
     "name": "USDT.e",
     "symbol": "USDT.e"
 }

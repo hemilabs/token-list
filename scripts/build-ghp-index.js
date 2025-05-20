@@ -4,8 +4,7 @@ const tokenList = JSON.parse(
   fs.readFileSync("src/hemi.tokenlist.json", "utf-8"),
 );
 
-const prefix =
-  "https://raw.githubusercontent.com/hemilabs/token-list/master/src/";
+const prefix = "https://hemilabs.github.io/token-list/";
 
 const toRelative = (url) =>
   url.startsWith(prefix) ? url.slice(prefix.length) : url;
