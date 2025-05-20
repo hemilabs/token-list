@@ -14,7 +14,7 @@
       "extensions": {
         "birthBlock": 1129497
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/bridged-egeth.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/bridged-egeth.png",
       "name": "Bridged egETH",
       "symbol": "Bridged egETH"
     },
@@ -57,7 +57,7 @@
       "extensions": {
         "birthBlock": 1187223
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/remote-bridged-mbtc.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/remote-bridged-mbtc.png",
       "name": "Liquid Staked BTC",
       "symbol": "Remote Bridged mBTC"
     },
@@ -185,7 +185,7 @@
       "address": "0x6A9A65B84843F5fD4aC9a0471C4fc11AFfFBce4a",
       "chainId": 43111,
       "decimals": 8,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/enzobtc.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/enzobtc.png",
       "name": "Lorenzo Wrapped Bitcoin",
       "symbol": "enzoBTC",
       "extensions": {
@@ -279,7 +279,7 @@
       "extensions": {
         "birthBlock": 971348
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/brbtc.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/brbtc.png",
       "name": "brBTC",
       "symbol": "brBTC"
     },
@@ -377,7 +377,7 @@
       "extensions": {
         "birthBlock": 671728
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/rseth.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/rseth.png",
       "name": "KelpDao Restaked ETH",
       "symbol": "rsETH"
     },
@@ -447,7 +447,7 @@
       "extensions": {
         "birthBlock": 1247968
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/subtc.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/subtc.png",
       "name": "Sumerian BTC",
       "symbol": "suBTC"
     },
@@ -466,7 +466,7 @@
       "address": "0xf6718b2701D4a6498eF77D7c152b2137Ab28b8A3",
       "chainId": 43111,
       "decimals": 18,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/stbtc.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/stbtc.png",
       "name": "Lorenzo stBTC",
       "symbol": "stBTC",
       "extensions": {
@@ -480,7 +480,7 @@
       "extensions": {
         "birthBlock": 971388
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/unibtc.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/unibtc.png",
       "name": "uniBTC",
       "symbol": "uniBTC"
     },
