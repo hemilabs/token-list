@@ -189,8 +189,7 @@
       "name": "Lorenzo Wrapped Bitcoin",
       "symbol": "enzoBTC",
       "extensions": {
-        "birthBlock": 734357,
-        "protocol": "lorenzo"
+        "birthBlock": 734357
       }
     },
     {
@@ -233,8 +232,7 @@
       "name": "uBTC",
       "symbol": "uBTC",
       "extensions": {
-        "birthBlock": 792952,
-        "protocol": "uniRouter"
+        "birthBlock": 792952
       }
     },
     {
@@ -260,8 +258,7 @@
       "name": "iBTC",
       "symbol": "iBTC",
       "extensions": {
-        "birthBlock": 629450,
-        "protocol": "exSat"
+        "birthBlock": 629450
       }
     },
     {
@@ -307,8 +304,7 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
-        "birthBlock": 849309,
-        "protocol": "merlinChain"
+        "birthBlock": 849309
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/m-btc.svg",
       "name": "Merlin BTC",
@@ -330,8 +326,7 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "birthBlock": 623077,
-        "tunnel": "stargate"
+        "birthBlock": 623077
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/usdc.svg",
       "name": "Bridged USDC (Stargate)",
@@ -369,8 +364,7 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "birthBlock": 666946,
-        "tunnel": "stargate"
+        "birthBlock": 666946
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/usdt.svg",
       "name": "USDT",
@@ -440,8 +434,7 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
-        "birthBlock": 914253,
-        "protocol": "nodeDao"
+        "birthBlock": 914253
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/obtc.svg",
       "name": "Obelisk BTC",
@@ -466,8 +459,7 @@
       "name": "pumpBTC",
       "symbol": "pumpBTC",
       "extensions": {
-        "birthBlock": 595343,
-        "protocol": "pumpBtc"
+        "birthBlock": 595343
       }
     },
     {
@@ -478,8 +470,7 @@
       "name": "Lorenzo stBTC",
       "symbol": "stBTC",
       "extensions": {
-        "birthBlock": 619947,
-        "protocol": "lorenzo"
+        "birthBlock": 619947
       }
     },
     {
