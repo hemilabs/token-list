@@ -1,0 +1,37 @@
+name: Deploy to GitHub Pages
+
+author: Gabriel Montes
+
+description: Deploy a directory to GitHub Pages
+
+inputs:
+  build-with-npm:
+    description: Run NPM build script before deploying
+    default: "true"
+  publish-dir:
+    description: Directory to publish
+    default: public
+
+outputs:
+  page_url:
+    description: The URL of the deployed page
+    value: ${{ steps.deployment.outputs.page_url }}
+
+runs:
+  using: composite
+  steps:
+    - if: ${{ inputs.build-with-npm == 'true' }}
+      uses: hemilabs/actions/setup-node-env@v1
+    - run: npm run --if-present build
+      shell: sh
+      if: ${{ inputs.build-with-npm == 'true' }}
+    - uses: actions/configure-pages@v5
+    - uses: actions/upload-pages-artifact@v3
+      with:
+        path: ${{ inputs.publish-dir }}
+    - id: deployment
+      uses: actions/deploy-pages@v4
+
+branding:
+  color: orange
+  icon: book-open

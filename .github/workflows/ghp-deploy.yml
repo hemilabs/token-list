@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: GitHub Pages Deployment
 
 on:
   workflow_dispatch:
@@ -8,15 +8,14 @@ on:
     types:
       - completed
     workflows:
-      - "NPM Publish"
+      - NPM Publish
 
 permissions:
-  contents: read
   id-token: write
   pages: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -28,10 +27,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - run: ./scripts/build-ghp.sh
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: "public"
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: ./.github/actions/deploy-to-ghp
+        with:
+          build-with-npm: "true"
+          publish-dir: public
+    timeout-minutes: 2
