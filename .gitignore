@@ -134,3 +134,6 @@ dist
 
 # GitHub Pages assets
 public
+
+# macOS Finder directory attributes
+.DS_Store
