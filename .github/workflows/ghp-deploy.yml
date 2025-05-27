@@ -27,9 +27,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: hemilabs/actions/setup-node-env@v1
+      - run: npm run build
       - id: deployment
-        uses: ./.github/actions/deploy-to-ghp
+        uses: hemilabs/actions/deploy-to-ghp@3018c41d5e6f18de555804303ab3d0402e670f98 # PR#24
         with:
-          build-with-npm: "true"
           publish-dir: public
     timeout-minutes: 2
