@@ -1,6 +1,6 @@
 {
   "name": "@hemilabs/token-list",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "List of ERC-20 tokens in the Hemi chains",
   "bugs": {
     "url": "https://github.com/hemilabs/token-list/issues"
