@@ -3,8 +3,6 @@ name: GitHub Pages Deployment
 on:
   workflow_dispatch:
   workflow_run:
-    branches:
-      - master
     types:
       - completed
     workflows:
