@@ -42,6 +42,7 @@ const page = ({ name, tokens, version }) => `
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${name}</title>
 
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" as="style" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
