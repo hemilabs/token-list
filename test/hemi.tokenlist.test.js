@@ -1,9 +1,8 @@
-import { createPublicClient, http } from "viem";
-import { describe, it } from "node:test";
-import { erc20Abi, isAddress } from "viem";
 import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { describe, it } from "node:test";
+import { createPublicClient, erc20Abi, http, isAddress } from "viem";
 
 import { getRemoteToken } from "../scripts/get-remote-token.js";
 

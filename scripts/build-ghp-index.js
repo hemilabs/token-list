@@ -16,7 +16,7 @@ const logo = ({ logoURI, name }) => `
 const shortenAddress = (address) =>
   `${address.slice(0, 6)}...${address.slice(-4)}`;
 
-const row = ({ name, chainId, symbol, address, logoURI }) => `
+const row = ({ address, chainId, logoURI, name, symbol }) => `
 <tr class="h-12 border-y">
   <td class="px-4 py-3">
     ${logo({ logoURI, name })}

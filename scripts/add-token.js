@@ -1,3 +1,5 @@
+import { hemi, hemiSepolia } from "hemi-viem";
+import fs from "node:fs";
 import {
   createPublicClient,
   erc20Abi,
@@ -5,8 +7,6 @@ import {
   http,
   isAddressEqual,
 } from "viem";
-import { hemi, hemiSepolia } from "hemi-viem";
-import fs from "node:fs";
 
 import { getRemoteToken } from "./get-remote-token.js";
 
