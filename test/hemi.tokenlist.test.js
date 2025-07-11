@@ -76,7 +76,7 @@ describe("List of tokens", function () {
         assert.deepEqual(props, [decimals, symbol, name]);
       });
 
-      it("image URL and file should be valid", function () {
+      it("image URL and file should be valid for l1 and l2 token logos", function () {
         // TODO https://github.com/hemilabs/token-list/issues/36 testnet bitcoin logo url needs to be updated
         if (address === "0x36Ab5Dba83d5d470F670BC4c06d7Da685d9afAe7") {
           this.skip();
@@ -89,13 +89,22 @@ describe("List of tokens", function () {
           .replaceAll(" ", "-")
           .toLowerCase();
 
-        const filepath = logoURI.match(
-          new RegExp(
-            `^${pagesUrl.replaceAll(".", "\\.")}/logos/${filename}\\.(svg|png)$`,
-          ),
-        );
-        assert.notEqual(filepath, null);
-        fs.accessSync(filepath[0].replace(`${pagesUrl}/`, "src/"));
+        const getFilePath = (uri, folder) =>
+          uri.match(
+            new RegExp(
+              `^${pagesUrl.replaceAll(".", "\\.")}/${folder}/${filename}\\.(svg|png)$`,
+            ),
+          );
+
+        const l2LogoFilePath = getFilePath(logoURI, "logos");
+
+        const l1LogoFilePath = getFilePath(extensions.l1LogoURI, "l1Logos");
+
+        assert.notEqual(l2LogoFilePath, null);
+        fs.accessSync(l2LogoFilePath[0].replace(`${pagesUrl}/`, "src/"));
+
+        assert.notEqual(l1LogoFilePath, null);
+        fs.accessSync(l1LogoFilePath[0].replace(`${pagesUrl}/`, "src/"));
       });
 
       it("should have a valid birth block number", function () {
