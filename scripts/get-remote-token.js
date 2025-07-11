@@ -1,5 +1,5 @@
-import { createPublicClient, getAddress as toChecksum, http } from "viem";
 import { hemi, hemiSepolia } from "hemi-viem";
+import { createPublicClient, getAddress as toChecksum, http } from "viem";
 
 const [filename, chainIdStr, addressGiven] = process.argv.slice(1);
 
