@@ -199,13 +199,13 @@
       "address": "0x6A9A65B84843F5fD4aC9a0471C4fc11AFfFBce4a",
       "chainId": 43111,
       "decimals": 8,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/enzobtc.png",
-      "name": "Lorenzo Wrapped Bitcoin",
-      "symbol": "enzoBTC",
       "extensions": {
         "birthBlock": 734357,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/enzobtc.png"
-      }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/enzobtc.png",
+      "name": "Lorenzo Wrapped Bitcoin",
+      "symbol": "enzoBTC"
     },
     {
       "address": "0x6c851F501a3F24E29A8E39a29591cddf09369080",
@@ -245,13 +245,13 @@
       "address": "0x78E26E8b953C7c78A58d69d8B9A91745C2BbB258",
       "chainId": 43111,
       "decimals": 18,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/ubtc.svg",
-      "name": "uBTC",
-      "symbol": "uBTC",
       "extensions": {
         "birthBlock": 792952,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/ubtc.svg"
-      }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/ubtc.svg",
+      "name": "uBTC",
+      "symbol": "uBTC"
     },
     {
       "address": "0x7A06C4AeF988e7925575C50261297a946aD204A8",
@@ -273,25 +273,25 @@
       "address": "0x8154Aaf094c2f03Ad550B6890E1d4264B5DdaD9A",
       "chainId": 43111,
       "decimals": 18,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/ibtc.svg",
-      "name": "iBTC",
-      "symbol": "iBTC",
       "extensions": {
         "birthBlock": 629450,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/ibtc.svg"
-      }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/ibtc.svg",
+      "name": "iBTC",
+      "symbol": "iBTC"
     },
     {
       "address": "0x8970a6A9Eae065aA81a94E86ebCAF4F3d4dd6DA1",
       "chainId": 43111,
       "decimals": 8,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/yncobtck.png",
-      "name": "YieldNest Restaked Coffer BTC - Kernel",
-      "symbol": "ynCoBTCk",
       "extensions": {
         "birthBlock": 1428240,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/yncobtck.png"
-      }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/yncobtck.png",
+      "name": "YieldNest Restaked Coffer BTC - Kernel",
+      "symbol": "ynCoBTCk"
     },
     {
       "address": "0x93919784C523f39CACaa98Ee0a9d96c3F32b593e",
@@ -490,25 +490,25 @@
       "address": "0xF469fBD2abcd6B9de8E169d128226C0Fc90a012e",
       "chainId": 43111,
       "decimals": 8,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/pumpbtc.png",
-      "name": "pumpBTC",
-      "symbol": "pumpBTC",
       "extensions": {
         "birthBlock": 595343,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/pumpbtc.png"
-      }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/pumpbtc.png",
+      "name": "pumpBTC",
+      "symbol": "pumpBTC"
     },
     {
       "address": "0xf6718b2701D4a6498eF77D7c152b2137Ab28b8A3",
       "chainId": 43111,
       "decimals": 18,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/stbtc.png",
-      "name": "Lorenzo stBTC",
-      "symbol": "stBTC",
       "extensions": {
         "birthBlock": 619947,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/stbtc.png"
-      }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/stbtc.png",
+      "name": "Lorenzo stBTC",
+      "symbol": "stBTC"
     },
     {
       "address": "0xF9775085d726E782E83585033B58606f7731AB18",
@@ -601,9 +601,6 @@
       "address": "0xec46E0EFB2EA8152da0327a5Eb3FF9a43956F13e",
       "chainId": 743111,
       "decimals": 18,
-      "logoURI": "https://hemilabs.github.io/token-list/logos/hdai.svg",
-      "name": "Hemi Tunneled DAI",
-      "symbol": "hDAI",
       "extensions": {
         "birthBlock": 71589,
         "bridgeInfo": {
@@ -612,7 +609,10 @@
           }
         },
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hdai.svg"
-      }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/hdai.svg",
+      "name": "Hemi Tunneled DAI",
+      "symbol": "hDAI"
     }
   ]
 }
