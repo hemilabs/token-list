@@ -12,7 +12,8 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
-        "birthBlock": 1129497
+        "birthBlock": 1129497,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/bridged-egeth.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/bridged-egeth.png",
       "name": "Bridged egETH",
@@ -28,7 +29,8 @@
           "1": {
             "tokenAddress": "0x68749665FF8D2d112Fa859AA293F07A622782F38"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/xaut.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/xaut.svg",
       "name": "Tether Gold",
@@ -44,7 +46,8 @@
           "1": {
             "tokenAddress": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/wbtc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/wbtc.svg",
       "name": "Wrapped BTC",
@@ -55,7 +58,8 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
-        "birthBlock": 1187223
+        "birthBlock": 1187223,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/remote-bridged-mbtc.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/remote-bridged-mbtc.png",
       "name": "Liquid Staked BTC",
@@ -71,7 +75,8 @@
           "1": {
             "tokenAddress": "0x18084fbA666a33d37592fA2633fD49a74DD93a88"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/tbtc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/tbtc.svg",
       "name": "tBTC v2",
@@ -87,7 +92,8 @@
           "1": {
             "tokenAddress": "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/sushi.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/sushi.svg",
       "name": "SushiToken",
@@ -103,7 +109,8 @@
           "1": {
             "tokenAddress": "0x1b40183EFB4Dd766f11bDa7A7c3AD8982e998421"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/vsp.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/vsp.svg",
       "name": "VesperToken",
@@ -113,6 +120,9 @@
       "address": "0x4200000000000000000000000000000000000006",
       "chainId": 43111,
       "decimals": 18,
+      "extensions": {
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg"
+      },
       "logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
       "name": "Wrapped Ether",
       "symbol": "WETH"
@@ -127,7 +137,8 @@
           "1": {
             "tokenAddress": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/mkr.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/mkr.svg",
       "name": "Maker",
@@ -143,7 +154,8 @@
           "1": {
             "tokenAddress": "0x2Ebd53d035150f328bd754D6DC66B99B0eDB89aa"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/met.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/met.svg",
       "name": "Metronome2",
@@ -159,7 +171,8 @@
           "1": {
             "tokenAddress": "0x514910771AF9Ca656af840dff83E8264EcF986CA"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/link.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/link.svg",
       "name": "ChainLink Token",
@@ -175,7 +188,8 @@
           "1": {
             "tokenAddress": "0x936Ab482d6bd111910a42849D3A51Ff80BB0A711"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/bwajna.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/bwajna.svg",
       "name": "Burn Wrapped AJNA",
@@ -189,7 +203,8 @@
       "name": "Lorenzo Wrapped Bitcoin",
       "symbol": "enzoBTC",
       "extensions": {
-        "birthBlock": 734357
+        "birthBlock": 734357,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/enzobtc.png"
       }
     },
     {
@@ -202,7 +217,8 @@
           "1": {
             "tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/dai.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/dai.svg",
       "name": "Dai Stablecoin",
@@ -218,7 +234,8 @@
           "1": {
             "tokenAddress": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/uni.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/uni.svg",
       "name": "Uniswap",
@@ -232,7 +249,8 @@
       "name": "uBTC",
       "symbol": "uBTC",
       "extensions": {
-        "birthBlock": 792952
+        "birthBlock": 792952,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/ubtc.svg"
       }
     },
     {
@@ -244,7 +262,8 @@
           "1": {
             "tokenAddress": "0x677ddbd918637E5F2c79e164D402454dE7dA8619"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/vusd.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/vusd.svg",
       "name": "VUSD",
@@ -258,7 +277,8 @@
       "name": "iBTC",
       "symbol": "iBTC",
       "extensions": {
-        "birthBlock": 629450
+        "birthBlock": 629450,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/ibtc.svg"
       }
     },
     {
@@ -269,7 +289,8 @@
       "name": "YieldNest Restaked Coffer BTC - Kernel",
       "symbol": "ynCoBTCk",
       "extensions": {
-        "birthBlock": 1428240
+        "birthBlock": 1428240,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/yncobtck.png"
       }
     },
     {
@@ -277,7 +298,8 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
-        "birthBlock": 971348
+        "birthBlock": 971348,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/brbtc.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/brbtc.png",
       "name": "brBTC",
@@ -293,7 +315,8 @@
           "1": {
             "tokenAddress": "0x4b1D0b9F081468D780Ca1d5d79132b64301085d1"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/lmr.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/lmr.svg",
       "name": "Lumerin",
@@ -304,7 +327,8 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
-        "birthBlock": 849309
+        "birthBlock": 849309,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/m-btc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/m-btc.svg",
       "name": "Merlin BTC",
@@ -315,7 +339,8 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
-        "birthBlock": 1125154
+        "birthBlock": 1125154,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemibtc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/hemibtc.svg",
       "name": "Hemi Bitcoin",
@@ -326,7 +351,8 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "birthBlock": 623077
+        "birthBlock": 623077,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/usdc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/usdc.svg",
       "name": "Bridged USDC (Stargate)",
@@ -342,7 +368,8 @@
           "1": {
             "tokenAddress": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/aave.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/aave.svg",
       "name": "Aave Token",
@@ -353,7 +380,8 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
-        "birthBlock": 1191831
+        "birthBlock": 1191831,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/satusd.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/satusd.png",
       "name": "Satoshi Stablecoin V2",
@@ -364,7 +392,8 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
-        "birthBlock": 666946
+        "birthBlock": 666946,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/usdt.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/usdt.svg",
       "name": "USDT",
@@ -375,7 +404,8 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
-        "birthBlock": 671728
+        "birthBlock": 671728,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/rseth.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/rseth.png",
       "name": "KelpDao Restaked ETH",
@@ -391,7 +421,8 @@
           "1": {
             "tokenAddress": "0x853d955aCEf822Db058eb8505911ED77F175b99e"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/frax.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/frax.svg",
       "name": "Frax",
@@ -407,7 +438,8 @@
           "1": {
             "tokenAddress": "0xc00e94Cb662C3520282E6f5717214004A7f26888"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/comp.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/comp.svg",
       "name": "Compound",
@@ -423,7 +455,8 @@
           "1": {
             "tokenAddress": "0x6985884C4392D348587B19cb9eAAf157F13271cd"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/zro.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/zro.svg",
       "name": "LayerZero",
@@ -434,7 +467,8 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
-        "birthBlock": 914253
+        "birthBlock": 914253,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/obtc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/obtc.svg",
       "name": "Obelisk BTC",
@@ -445,7 +479,8 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
-        "birthBlock": 1247968
+        "birthBlock": 1247968,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/subtc.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/subtc.png",
       "name": "Sumerian BTC",
@@ -459,7 +494,8 @@
       "name": "pumpBTC",
       "symbol": "pumpBTC",
       "extensions": {
-        "birthBlock": 595343
+        "birthBlock": 595343,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/pumpbtc.png"
       }
     },
     {
@@ -470,7 +506,8 @@
       "name": "Lorenzo stBTC",
       "symbol": "stBTC",
       "extensions": {
-        "birthBlock": 619947
+        "birthBlock": 619947,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/stbtc.png"
       }
     },
     {
@@ -478,7 +515,8 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
-        "birthBlock": 971388
+        "birthBlock": 971388,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/unibtc.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/unibtc.png",
       "name": "uniBTC",
@@ -489,7 +527,8 @@
       "chainId": 743111,
       "decimals": 18,
       "extensions": {
-        "birthBlock": 195484
+        "birthBlock": 195484,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
       "name": "Wrapped Ether",
@@ -500,7 +539,8 @@
       "chainId": 743111,
       "decimals": 8,
       "extensions": {
-        "birthBlock": 2165818
+        "birthBlock": 2165818,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemibtc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/hemibtc.svg",
       "name": "HemiBitcoin",
@@ -516,7 +556,8 @@
           "11155111": {
             "tokenAddress": "0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/usdt.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/usdt.svg",
       "name": "USDT.e",
@@ -532,7 +573,8 @@
           "11155111": {
             "tokenAddress": "0x48589961e8474B47baB878E4844BAB827Ea73A1e"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/rusdc-hemi.png"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/rusdc-hemi.png",
       "name": "rUSDC-hemi",
@@ -548,7 +590,8 @@
           "11155111": {
             "tokenAddress": "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/usdc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/usdc.svg",
       "name": "USDC.e",
@@ -567,7 +610,8 @@
           "11155111": {
             "tokenAddress": "0xFF34B3d4Aee8ddCd6F9AFFFB6Fe49bD371b8a357"
           }
-        }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hdai.svg"
       }
     }
   ]
