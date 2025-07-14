@@ -42,6 +42,9 @@ The script will automatically add the information about the new token to [./src/
     "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
     "chainId": 743111,
     "decimals": 18,
+    "extensions": {
+      "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg",
+    },
     "logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
     "name": "Wrapped Ether",
     "symbol": "WETH"
@@ -49,19 +52,27 @@ The script will automatically add the information about the new token to [./src/
 ...
 ```
 
-## Step 2 - Add the Token Logo
+## Step 2 - Add the Token Logos
 
-If you pay attention to the information added by the script in the previous step it has the `logoURI` for the new token and you need to add the image file related to it to the [./src/logos](../src/logos) directory.
+If you pay attention to the information added by the script in the previous step it has the `logoURI` for the new token and you need to add the image file related to it to the [./src/logos](../src/logos) directory. This logo must include the "Hemi" sub-logo in it.
 
 ```json
 "logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
 ```
 
-> The token logo can be an SVG or PNG file (it sets `svg` as default in the `logoURI`, but you can change it to `png` if needed)
+> The token logo can be an SVG or PNG file (it sets `svg` as default in the `logoURI`, but you can change it to `png` if needed).
 
-## Step 3 - Add the Extensions Information
+In addition to that, in the extensions field, a L1 logo version is added that does not include the Hemi logo in it. These logos shall be added to the [./src/l1Logos](../src/l1Logos) directory.
 
-Some important token information is not gathered by the `add-token` script and needs to be added manually to the [./src/hemi.tokenlist.json](../src/hemi.tokenlist.json) file as extensions.
+```json
+"extensions": {
+  "logoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg",
+}
+```
+
+## Step 3 - Add the rest of the optional Extensions values
+
+Some important token information is not gathered by the `add-token` script and may need to be added manually to the [./src/hemi.tokenlist.json](../src/hemi.tokenlist.json) file as extensions.
 
 ### birthBlock
 
