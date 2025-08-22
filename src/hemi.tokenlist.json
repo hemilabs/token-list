@@ -1,10 +1,10 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2025-07-11T19:04:04.419Z",
+  "timestamp": "2025-08-22T13:41:43.201Z",
   "version": {
     "major": 2,
-    "minor": 1,
-    "patch": 1
+    "minor": 2,
+    "patch": 0
   },
   "tokens": [
     {
@@ -321,6 +321,23 @@
       "logoURI": "https://hemilabs.github.io/token-list/logos/lmr.svg",
       "name": "Lumerin",
       "symbol": "LMR"
+    },
+    {
+      "address": "0x99e3dE3817F6081B2568208337ef83295b7f591D",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "birthBlock": 2270812,
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xEb964A1A6fAB73b8c72A0D15c7337fA4804F484d"
+          }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemi.svg"
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/hemi.svg",
+      "name": "Hemi",
+      "symbol": "HEMI"
     },
     {
       "address": "0x9BFA177621119e64CecbEabE184ab9993E2ef727",
