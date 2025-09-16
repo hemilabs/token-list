@@ -68,7 +68,7 @@ async function addToken() {
       extensions: remoteTokenAddress && {
         bridgeInfo: {
           [chain.sourceId]: {
-            tokenAddress: remoteTokenAddress,
+            tokenAddress: toChecksum(remoteTokenAddress),
           },
         },
       },
