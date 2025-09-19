@@ -83,6 +83,23 @@
       "symbol": "tBTC"
     },
     {
+      "address": "0x1596bE338B999E2376675C908168A7548C8B0525",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 2703949,
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+          }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/cbbtc.svg"
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/cbbtc.svg",
+      "name": "Coinbase Wrapped BTC",
+      "symbol": "cbBTC"
+    },
+    {
       "address": "0x1EBD781B9259822d00b0c5F4Ca2F0838D72BBE9c",
       "chainId": 43111,
       "decimals": 18,
