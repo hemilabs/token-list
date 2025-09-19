@@ -16,21 +16,41 @@ const logo = ({ logoURI, name }) => `
 const shortenAddress = (address) =>
   `${address.slice(0, 6)}...${address.slice(-4)}`;
 
-const row = ({ address, chainId, logoURI, name, symbol }) => `
+const hemiExplorerUrl = (chainId, address) =>
+  `https://${chainId === 43111 ? "explorer.hemi.xyz" : "testnet.explorer.hemi.xyz"}/token/${address}`;
+
+const etherscanUrl = (chainId, address) =>
+  `https://${chainId === 1 ? "etherscan.io" : "sepolia.etherscan.io"}/token/${address}`;
+
+function row({ address, chainId, extensions, logoURI, name, symbol }) {
+  const chainName = chainId === 43111 ? "Hemi" : "Hemi Sepolia";
+  const l1ChainId = chainId === 43111 ? 1 : 11155111;
+  const l1Address = extensions?.bridgeInfo?.[l1ChainId]?.tokenAddress;
+  return `
 <tr class="h-12 border-y">
   <td class="px-4 py-3">
     ${logo({ logoURI, name })}
     <span class="hidden lg:inline overflow-hidden whitespace-nowrap ml-2 text-ellipsis">${name}</span>
   </td>
   <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${symbol}</td>
-  <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${chainId === 43111 ? "Hemi" : "Hemi Sepolia"}</td>
+  <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${chainName}</td>
   <td class="px-4 py-3">
-    <a class="font-mono text-neutral-500 hover:text-neutral-700" href="https://${chainId === 43111 ? "explorer" : "testnet.explorer"}.hemi.xyz/token/${address}" title="${address}">
+    <a class="font-mono text-neutral-500 hover:text-neutral-700" href="${hemiExplorerUrl(chainId, address)}" title="${address}">
       ${shortenAddress(address)}
     </a>
   </td>
+  <td class="hidden lg:table-cell px-4 py-3">
+    ${
+      l1Address
+        ? `<a class="font-mono text-neutral-500 hover:text-neutral-700" href="${etherscanUrl(l1ChainId, l1Address)}" title="${l1Address}">
+            ${shortenAddress(l1Address)}
+          </a>`
+        : "-"
+    }
+  </td>
 </tr>
 `;
+}
 
 const page = ({ name, tokens, version }) => `
 <!DOCTYPE html>
@@ -81,6 +101,7 @@ const page = ({ name, tokens, version }) => `
           <th class="px-4 py-3 text-left font-normal">Symbol</th>
           <th class="px-4 py-3 text-left font-normal">Chain</th>
           <th class="px-4 py-3 text-left font-normal">Address</th>
+          <th class="px-4 py-3 text-left font-normal">L1 Address</th>
         </tr>
       </thead>
       <tbody>
