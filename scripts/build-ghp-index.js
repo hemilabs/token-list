@@ -25,9 +25,10 @@ const etherscanUrl = (chainId, address) =>
 function row({ address, chainId, extensions, logoURI, name, symbol }) {
   const chainName = chainId === 43111 ? "Hemi" : "Hemi Sepolia";
   const l1ChainId = chainId === 43111 ? 1 : 11155111;
-  const l1Address = extensions?.bridgeInfo?.[l1ChainId]?.tokenAddress;
+  const l1Address = extensions?.bridgeInfo?.[l1ChainId]?.tokenAddress || "";
+  const rowId = `${name}${symbol}${address}${l1Address}`.toLowerCase();
   return `
-<tr class="h-12 border-y">
+<tr class="h-12 border-y" id="${rowId}">
   <td class="px-4 py-3">
     ${logo({ logoURI, name })}
     <span class="hidden lg:inline overflow-hidden whitespace-nowrap ml-2 text-ellipsis">${name}</span>
@@ -94,7 +95,8 @@ const page = ({ name, tokens, version }) => `
   <section class="flex flex-col items-center">
     <img class="my-12" src="assets/hemi-logo-orange.svg" height="131" width="132" alt="Hemi" />
     <h1 class="max-w-xl text-5xl text-center font-semibold">Explore tokens on the Hemi networks</h1>
-    <table class="max-w-full overflow-hidden mt-14 rounded-xl shadow-md">
+    <input class="border rounded-xl mt-8 px-4 py-2" id="searchInput" placeholder="Search"/>
+    <table class="max-w-full overflow-hidden mt-8 rounded-xl shadow-md">
       <thead class="hidden lg:table-header-group h-11 border-b bg-zinc-100">
         <tr>
           <th class="px-4 py-3 text-left font-normal">Name</th>
@@ -120,6 +122,17 @@ const page = ({ name, tokens, version }) => `
       </a>
     </p>
   </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function (event) {
+      const query = event.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(function (row) {
+        row.style.display = row.id.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
 </body>
 
 </html>
