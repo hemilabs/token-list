@@ -16,21 +16,45 @@ const logo = ({ logoURI, name }) => `
 const shortenAddress = (address) =>
   `${address.slice(0, 6)}...${address.slice(-4)}`;
 
-const row = ({ address, chainId, logoURI, name, symbol }) => `
-<tr class="h-12 border-y">
+const hemiExplorerUrl = (chainId, address) =>
+  `https://${chainId === 43111 ? "explorer.hemi.xyz" : "testnet.explorer.hemi.xyz"}/token/${address}`;
+
+const etherscanUrl = (chainId, address) =>
+  `https://${chainId === 1 ? "etherscan.io" : "sepolia.etherscan.io"}/token/${address}`;
+
+function addressLink(chainId, address) {
+  const url = [43111, 743111].includes(chainId)
+    ? hemiExplorerUrl(chainId, address)
+    : etherscanUrl(chainId, address);
+  return `
+<a class="font-mono text-neutral-500 hover:text-neutral-700" href="${url}" rel="noopener noreferrer" target="_blank" title="${address}">
+  ${shortenAddress(address)}
+</a>
+`;
+}
+
+function row({ address, chainId, extensions, logoURI, name, symbol }) {
+  const chainName = chainId === 43111 ? "Hemi" : "Hemi Sepolia";
+  const l1ChainId = chainId === 43111 ? 1 : 11155111;
+  const l1Address = extensions?.bridgeInfo?.[l1ChainId]?.tokenAddress || "";
+  const rowId = `${name}${symbol}${address}${l1Address}`.toLowerCase();
+  return `
+<tr class="h-12 border-y" id="${rowId}">
   <td class="px-4 py-3">
     ${logo({ logoURI, name })}
     <span class="hidden lg:inline overflow-hidden whitespace-nowrap ml-2 text-ellipsis">${name}</span>
   </td>
   <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${symbol}</td>
-  <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${chainId === 43111 ? "Hemi" : "Hemi Sepolia"}</td>
+  <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${chainName}</td>
   <td class="px-4 py-3">
-    <a class="font-mono text-neutral-500 hover:text-neutral-700" href="https://${chainId === 43111 ? "explorer" : "testnet.explorer"}.hemi.xyz/token/${address}" title="${address}">
-      ${shortenAddress(address)}
-    </a>
+    ${addressLink(chainId, address)}
+  </td>
+  <td class="hidden lg:table-cell px-4 py-3">
+    ${l1Address ? addressLink(l1ChainId, l1Address) : "-"}
   </td>
 </tr>
 `;
+}
 
 const page = ({ name, tokens, version }) => `
 <!DOCTYPE html>
@@ -74,13 +98,15 @@ const page = ({ name, tokens, version }) => `
   <section class="flex flex-col items-center">
     <img class="my-12" src="assets/hemi-logo-orange.svg" height="131" width="132" alt="Hemi" />
     <h1 class="max-w-xl text-5xl text-center font-semibold">Explore tokens on the Hemi networks</h1>
-    <table class="max-w-full overflow-hidden mt-14 rounded-xl shadow-md">
+    <input class="border rounded-xl mt-8 px-4 py-2" id="searchInput" placeholder="Search"/>
+    <table class="max-w-full overflow-hidden mt-8 rounded-xl shadow-md">
       <thead class="hidden lg:table-header-group h-11 border-b bg-zinc-100">
         <tr>
           <th class="px-4 py-3 text-left font-normal">Name</th>
           <th class="px-4 py-3 text-left font-normal">Symbol</th>
           <th class="px-4 py-3 text-left font-normal">Chain</th>
           <th class="px-4 py-3 text-left font-normal">Address</th>
+          <th class="px-4 py-3 text-left font-normal">L1 Address</th>
         </tr>
       </thead>
       <tbody>
@@ -99,6 +125,17 @@ const page = ({ name, tokens, version }) => `
       </a>
     </p>
   </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function (event) {
+      const query = event.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(function (row) {
+        row.style.display = row.id.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
 </body>
 
 </html>
