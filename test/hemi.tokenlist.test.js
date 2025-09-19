@@ -124,10 +124,11 @@ describe("List of tokens", function () {
         const remoteToken = await getRemoteToken(client, address).catch(
           () => null,
         );
-        if (!remoteToken) {
+        if (!tokenAddress && !remoteToken) {
           this.skip();
           return;
         }
+
         assert.equal(remoteToken, tokenAddress);
       });
     });
