@@ -22,6 +22,17 @@ const hemiExplorerUrl = (chainId, address) =>
 const etherscanUrl = (chainId, address) =>
   `https://${chainId === 1 ? "etherscan.io" : "sepolia.etherscan.io"}/token/${address}`;
 
+function addressLink(chainId, address) {
+  const url = [43111, 743111].includes(chainId)
+    ? hemiExplorerUrl(chainId, address)
+    : etherscanUrl(chainId, address);
+  return `
+<a class="font-mono text-neutral-500 hover:text-neutral-700" href="${url}" rel="noopener noreferrer" target="_blank" title="${address}">
+  ${shortenAddress(address)}
+</a>
+`;
+}
+
 function row({ address, chainId, extensions, logoURI, name, symbol }) {
   const chainName = chainId === 43111 ? "Hemi" : "Hemi Sepolia";
   const l1ChainId = chainId === 43111 ? 1 : 11155111;
@@ -36,18 +47,10 @@ function row({ address, chainId, extensions, logoURI, name, symbol }) {
   <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${symbol}</td>
   <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${chainName}</td>
   <td class="px-4 py-3">
-    <a class="font-mono text-neutral-500 hover:text-neutral-700" href="${hemiExplorerUrl(chainId, address)}" title="${address}">
-      ${shortenAddress(address)}
-    </a>
+    ${addressLink(chainId, address)}
   </td>
   <td class="hidden lg:table-cell px-4 py-3">
-    ${
-      l1Address
-        ? `<a class="font-mono text-neutral-500 hover:text-neutral-700" href="${etherscanUrl(l1ChainId, l1Address)}" title="${l1Address}">
-            ${shortenAddress(l1Address)}
-          </a>`
-        : "-"
-    }
+    ${l1Address ? addressLink(l1ChainId, l1Address) : "-"}
   </td>
 </tr>
 `;
