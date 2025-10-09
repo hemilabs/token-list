@@ -213,6 +213,18 @@
       "symbol": "BGBTC"
     },
     {
+      "address": "0x623F2774d9f27B59bc6b954544487532CE79d9DF",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "birthBlock": 1338254,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/bfbtc.svg"
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/bfbtc.svg",
+      "name": "BitFi Bitcoin",
+      "symbol": "bfBTC"
+    },
+    {
       "address": "0x63D367531B460Da78a9EBBAF6c1FBFC397E5d40A",
       "chainId": 43111,
       "decimals": 18,
