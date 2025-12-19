@@ -146,8 +146,8 @@
       y2="119"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#FF8937" />
-      <stop offset="1" stop-color="#F04D06" />
+      <stop stop-color="#FF4600" />
+      <stop offset="1" stop-color="#CC2F02" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_12408_21848"

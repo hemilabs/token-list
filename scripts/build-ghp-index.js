@@ -75,6 +75,11 @@ const page = ({ name, tokens, version }) => `
     tailwind.config = {
       theme: {
         extend: {
+          colors: {
+            orange: {
+                600: '#FF4600',
+              },
+            },
           fontFamily: {
             mono: ['JetBrains Mono'],
             sans: ['Inter']
@@ -92,7 +97,7 @@ const page = ({ name, tokens, version }) => `
     </a>
     <span>
       <a class="ml-3 px-4 py-2 rounded-lg border-t border-gray-200 shadow-md" href="https://docs.hemi.xyz">Read the docs</a>
-      <a class="ml-3 px-4 py-2 rounded-lg text-white bg-orange-500 shadow-md" href="https://app.hemi.xyz">Launch Portal</a>
+      <a class="ml-3 px-4 py-2 rounded-lg text-white bg-orange-600 shadow-md" href="https://app.hemi.xyz">Launch Portal</a>
     </span>
   </header>
   <section class="flex flex-col items-center">
