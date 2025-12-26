@@ -444,9 +444,9 @@
       "decimals": 18,
       "extensions": {
         "birthBlock": 1191831,
-        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/satusd.png"
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/satusd.svg"
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/satusd.png",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/satusd.svg",
       "name": "Satoshi Stablecoin V2",
       "symbol": "satUSD"
     },
