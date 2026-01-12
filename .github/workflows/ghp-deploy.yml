@@ -24,8 +24,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: hemilabs/actions/setup-node-env@v1
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: hemilabs/actions/setup-node-env@06d5e0813de21d92283163864cce2e95ec5b67c6 # v1.0.0
       - run: npm run build
       - id: deployment
         uses: hemilabs/actions/deploy-to-ghp@3018c41d5e6f18de555804303ab3d0402e670f98 # PR#24
