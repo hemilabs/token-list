@@ -13,4 +13,4 @@ concurrency:
 
 jobs:
   js-checks:
-    uses: hemilabs/actions/.github/workflows/js-checks.yml@06d5e0813de21d92283163864cce2e95ec5b67c6 # v1.0.0
+    uses: hemilabs/actions/.github/workflows/js-checks.yml@e67f2b7d682accaeb026ebe393f8a161b2daa35b # v2.2.0
