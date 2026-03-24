@@ -25,10 +25,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-      - uses: hemilabs/actions/setup-node-env@e67f2b7d682accaeb026ebe393f8a161b2daa35b # v2.2.0
+      - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
       - run: npm run build
       - id: deployment
-        uses: hemilabs/actions/deploy-to-ghp@e67f2b7d682accaeb026ebe393f8a161b2daa35b # v2.2.0
+        uses: hemilabs/actions/deploy-to-ghp@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
         with:
           publish-dir: public
     timeout-minutes: 2
