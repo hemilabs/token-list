@@ -389,12 +389,10 @@
           },
           "42161": {
             "tokenAddress": "0x1f278B7EFf04ADd48Ff81ae1a01cBC178b3dD351"
-          },
-          "43111": {
-            "tokenAddress": "0xf14A494Fb66927Df0b1495E5F09b410e5D8517C3"
           }
         },
-        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemi.svg"
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemi.svg",
+        "oftAdapterAddress": "0xf14A494Fb66927Df0b1495E5F09b410e5D8517C3"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/hemi.svg",
       "name": "Hemi",

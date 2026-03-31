@@ -65,6 +65,13 @@ describe("List of tokens", function () {
               checksumAddress(tokenAddress) === tokenAddress,
           ),
         );
+        if (extensions.oftAdapterAddress) {
+          assert.ok(
+            isAddress(extensions.oftAdapterAddress) &&
+              checksumAddress(extensions.oftAdapterAddress) ===
+                extensions.oftAdapterAddress,
+          );
+        }
       });
 
       it("should be a valid ERC20", async function () {
