@@ -378,20 +378,20 @@
           "1": {
             "tokenAddress": "0xEb964A1A6fAB73b8c72A0D15c7337fA4804F484d"
           },
-          "43111": {
-            "tokenAddress": "0xf14A494Fb66927Df0b1495E5F09b410e5D8517C3"
+          "10": {
+            "tokenAddress": "0x1aD02cD579C7668d50e0003f428701b70A1b42B7"
           },
           "56": {
             "tokenAddress": "0x5fFD0EAdc186AF9512542d0d5e5eAFC65d5aFc5B"
           },
-          "10": {
-            "tokenAddress": "0x1ad02cd579c7668d50e0003f428701b70a1b42b7"
+          "8453": {
+            "tokenAddress": "0xBcaBa0baC0F4Bff8cC8659F2218C6d5324b46061"
           },
           "42161": {
-            "tokenAddress": "0x1f278b7eff04add48ff81ae1a01cbc178b3dd351"
+            "tokenAddress": "0x1f278B7EFf04ADd48Ff81ae1a01cBC178b3dD351"
           },
-          "8453": {
-            "tokenAddress": "0xbcaba0bac0f4bff8cc8659f2218c6d5324b46061"
+          "43111": {
+            "tokenAddress": "0xf14A494Fb66927Df0b1495E5F09b410e5D8517C3"
           }
         },
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemi.svg"
