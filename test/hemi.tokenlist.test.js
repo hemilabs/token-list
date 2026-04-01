@@ -2,7 +2,13 @@ import { hemi, hemiSepolia } from "hemi-viem";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { describe, it } from "node:test";
-import { createPublicClient, erc20Abi, http, isAddress } from "viem";
+import {
+  checksumAddress,
+  createPublicClient,
+  erc20Abi,
+  http,
+  isAddress,
+} from "viem";
 
 import { getRemoteToken } from "../scripts/get-remote-token.js";
 
@@ -52,13 +58,20 @@ describe("List of tokens", function () {
 
     describe(`Token ${chainId}:${address} (${symbol})`, function () {
       it("should have all its addresses in the checksum format", function () {
-        // viem's isAddress checks for checksum format
-        assert.ok(isAddress(address));
-
-        // check the bridgeInfo address, if defined
+        assert.ok(isAddress(address) && checksumAddress(address) === address);
         Object.values(extensions.bridgeInfo ?? {}).forEach(({ tokenAddress }) =>
-          assert.ok(isAddress(tokenAddress)),
+          assert.ok(
+            isAddress(tokenAddress) &&
+              checksumAddress(tokenAddress) === tokenAddress,
+          ),
         );
+        if (extensions.oftAdapterAddress) {
+          assert.ok(
+            isAddress(extensions.oftAdapterAddress) &&
+              checksumAddress(extensions.oftAdapterAddress) ===
+                extensions.oftAdapterAddress,
+          );
+        }
       });
 
       it("should be a valid ERC20", async function () {
