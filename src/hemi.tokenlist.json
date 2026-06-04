@@ -539,6 +539,18 @@
       "symbol": "COMP"
     },
     {
+      "address": "0xD8D63De3b64bd06d99F8F5AD8B78Ed2fE7525eC0",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "birthBlock": 4444786,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/svetbtc.svg"
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/svetbtc.svg",
+      "name": "Staked Vetro BTC",
+      "symbol": "svetBTC"
+    },
+    {
       "address": "0xDF0e8f7b7FDA30605cA5665161F9f3dDb489c870",
       "chainId": 43111,
       "decimals": 18,
