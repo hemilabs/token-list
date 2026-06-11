@@ -29,7 +29,7 @@
     "test": "node --test"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.8.1",
+    "@commitlint/cli": "21.0.2",
     "ajv": "8.17.1",
     "ajv-formats": "3.0.1",
     "better-sort-package-json": "1.1.1",
