@@ -416,6 +416,11 @@
       "decimals": 8,
       "extensions": {
         "birthBlock": 1125154,
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x06ea695B91700071B161A434fED42D1DcbAD9f00"
+          }
+        },
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemibtc.svg"
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/hemibtc.svg",
