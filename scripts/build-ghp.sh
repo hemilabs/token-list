@@ -14,3 +14,6 @@ node scripts/build-ghp-index.js
 
 # Extract hemi.json
 jq '.tokens[] | select(.symbol == "HEMI" and .chainId == 43111)' src/hemi.tokenlist.json >public/hemi.json
+
+# Extract hemibtc.json
+jq '.tokens[] | select(.symbol == "hemiBTC" and .chainId == 43111)' src/hemi.tokenlist.json >public/hemibtc.json
