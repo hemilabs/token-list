@@ -31,7 +31,7 @@ There is a script that automates the process of adding new tokens to the list an
 node scripts/add-token <chain-id> <address>
 ```
 
-> You need to install the project dependencies before running this command with `npm install`.
+> You need to install the project dependencies before running this command with `pnpm install`.
 
 The script will automatically add the information about the new token to [./src/hemi.tokenlist.json](../src/hemi.tokenlist.json) file as shown below:
 
@@ -135,7 +135,7 @@ The changes you did in the code will be checked automatically in terms of format
 You can only use the new token you added if you generate a new package version for it and that can be done by running:
 
 ```sh
-npm version minor
+pnpm version minor
 ```
 
 This command will increase the minor version by 1 and add a tag to the commit you created in the previous step.
