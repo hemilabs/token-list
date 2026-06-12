@@ -9,6 +9,8 @@ import {
   http,
   isAddress,
 } from "viem";
+import { readContract } from "viem/actions";
+import { arbitrum, base, bsc, mainnet, optimism } from "viem/chains";
 
 import { getRemoteToken } from "../scripts/get-remote-token.js";
 
@@ -17,15 +19,44 @@ const tokenList = JSON.parse(
   fs.readFileSync("./src/hemi.tokenlist.json", "utf-8"),
 );
 
+// A client per chain, keyed by chain id: the Hemi chains where tokens live plus
+// the chains a LayerZero-bridged token can reach to read its remote OFT peer.
+// Cap each request at 5s and disable retries so an unresponsive or rate-limited
+// public RPC fails fast instead of hanging on retry/Retry-After backoff. The
+// default mainnet RPC is unreliable, so use an explicit endpoint there.
+const rpcUrls = { [mainnet.id]: "https://eth.drpc.org" };
 const clients = Object.fromEntries(
-  [hemi, hemiSepolia].map((chain) => [
+  [hemi, hemiSepolia, mainnet, optimism, bsc, base, arbitrum].map((chain) => [
     chain.id,
     createPublicClient({
       chain,
-      transport: http(),
+      transport: http(rpcUrls[chain.id], { retryCount: 0, timeout: 5000 }),
     }),
   ]),
 );
+
+// LayerZero V2 endpoint ID for Hemi. Remote OFTs peer back to the Hemi adapter
+// using this id.
+const hemiEndpointId = 30329;
+
+const peersAbi = [
+  {
+    type: "function",
+    name: "peers",
+    stateMutability: "view",
+    inputs: [{ type: "uint32" }],
+    outputs: [{ type: "bytes32" }],
+  },
+];
+const tokenAbi = [
+  {
+    type: "function",
+    name: "token",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [{ type: "address" }],
+  },
+];
 
 describe("Version", function () {
   it("should match the package version", function () {
@@ -58,18 +89,16 @@ describe("List of tokens", function () {
 
     describe(`Token ${chainId}:${address} (${symbol})`, function () {
       it("should have all its addresses in the checksum format", function () {
-        assert.ok(isAddress(address) && checksumAddress(address) === address);
+        const isChecksummed = (value) =>
+          isAddress(value) && checksumAddress(value) === value;
+        assert.ok(isChecksummed(address));
         Object.values(extensions.bridgeInfo ?? {}).forEach(({ tokenAddress }) =>
-          assert.ok(
-            isAddress(tokenAddress) &&
-              checksumAddress(tokenAddress) === tokenAddress,
-          ),
+          assert.ok(isChecksummed(tokenAddress)),
         );
-        if (extensions.oftAdapterAddress) {
-          assert.ok(
-            isAddress(extensions.oftAdapterAddress) &&
-              checksumAddress(extensions.oftAdapterAddress) ===
-                extensions.oftAdapterAddress,
+        if (extensions.oft) {
+          assert.ok(isChecksummed(extensions.oft.adapterAddress));
+          Object.values(extensions.oft.peers).forEach(({ tokenAddress }) =>
+            assert.ok(isChecksummed(tokenAddress)),
           );
         }
       });
@@ -143,6 +172,41 @@ describe("List of tokens", function () {
         }
 
         assert.equal(remoteToken, tokenAddress);
+      });
+
+      it("should have valid LayerZero OFT peers", async function () {
+        const { oft } = extensions;
+        if (!oft) {
+          this.skip();
+          return;
+        }
+
+        // The Hemi-side OFT adapter must wrap this token.
+        const adapterToken = await readContract(clients[chainId], {
+          abi: tokenAbi,
+          address: oft.adapterAddress,
+          args: [],
+          functionName: "token",
+        });
+        assert.equal(adapterToken, address);
+
+        // Every peer OFT must point back to the Hemi adapter.
+        for (const [remoteChainId, { tokenAddress }] of Object.entries(
+          oft.peers,
+        )) {
+          const client = clients[remoteChainId];
+          assert.ok(client, `no client configured for chain ${remoteChainId}`);
+          const peer = await readContract(client, {
+            abi: peersAbi,
+            address: tokenAddress,
+            args: [hemiEndpointId],
+            functionName: "peers",
+          });
+          assert.equal(
+            checksumAddress(`0x${peer.slice(-40)}`),
+            oft.adapterAddress,
+          );
+        }
       });
     });
   });
