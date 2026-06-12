@@ -36,6 +36,33 @@ async function validate() {
   schema.definitions.ExtensionPrimitiveValue.anyOf[l1LogoURIIndex].maxLength =
     100;
 
+  // The "oft" extension describes LayerZero bridging and is too deeply nested for
+  // the generic ExtensionValue schema, so it is validated with an explicit shape.
+  const addressPattern = "^0x[a-fA-F0-9]{40}$";
+  schema.definitions.ExtensionMap.properties = {
+    oft: {
+      additionalProperties: false,
+      properties: {
+        adapterAddress: { pattern: addressPattern, type: "string" },
+        peers: {
+          additionalProperties: {
+            additionalProperties: false,
+            properties: {
+              tokenAddress: { pattern: addressPattern, type: "string" },
+            },
+            required: ["tokenAddress"],
+            type: "object",
+          },
+          minProperties: 1,
+          propertyNames: { pattern: "^[0-9]+$" },
+          type: "object",
+        },
+      },
+      required: ["adapterAddress", "peers"],
+      type: "object",
+    },
+  };
+
   const validator = ajv.compile(schema);
   const valid = validator(tokenList);
   if (valid) {

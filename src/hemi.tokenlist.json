@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2026-06-04T20:51:28.904Z",
+  "timestamp": "2026-06-12T15:03:33.470Z",
   "version": {
-    "major": 2,
-    "minor": 9,
+    "major": 3,
+    "minor": 0,
     "patch": 0
   },
   "tokens": [
@@ -377,22 +377,26 @@
         "bridgeInfo": {
           "1": {
             "tokenAddress": "0xEb964A1A6fAB73b8c72A0D15c7337fA4804F484d"
-          },
-          "10": {
-            "tokenAddress": "0x1aD02cD579C7668d50e0003f428701b70A1b42B7"
-          },
-          "56": {
-            "tokenAddress": "0x5fFD0EAdc186AF9512542d0d5e5eAFC65d5aFc5B"
-          },
-          "8453": {
-            "tokenAddress": "0xBcaBa0baC0F4Bff8cC8659F2218C6d5324b46061"
-          },
-          "42161": {
-            "tokenAddress": "0x1f278B7EFf04ADd48Ff81ae1a01cBC178b3dD351"
           }
         },
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemi.svg",
-        "oftAdapterAddress": "0xf14A494Fb66927Df0b1495E5F09b410e5D8517C3"
+        "oft": {
+          "adapterAddress": "0xf14A494Fb66927Df0b1495E5F09b410e5D8517C3",
+          "peers": {
+            "10": {
+              "tokenAddress": "0x1aD02cD579C7668d50e0003f428701b70A1b42B7"
+            },
+            "56": {
+              "tokenAddress": "0x5fFD0EAdc186AF9512542d0d5e5eAFC65d5aFc5B"
+            },
+            "8453": {
+              "tokenAddress": "0xBcaBa0baC0F4Bff8cC8659F2218C6d5324b46061"
+            },
+            "42161": {
+              "tokenAddress": "0x1f278B7EFf04ADd48Ff81ae1a01cBC178b3dD351"
+            }
+          }
+        }
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/hemi.svg",
       "name": "Hemi",
@@ -416,7 +420,27 @@
       "decimals": 8,
       "extensions": {
         "birthBlock": 1125154,
-        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemibtc.svg"
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemibtc.svg",
+        "oft": {
+          "adapterAddress": "0xDefa4A253a0Ec96a2e6D74A409B3B348924bf390",
+          "peers": {
+            "1": {
+              "tokenAddress": "0x06ea695B91700071B161A434fED42D1DcbAD9f00"
+            },
+            "10": {
+              "tokenAddress": "0xB5259c05764468c33C9c36e327cAAD020a8E5Fe1"
+            },
+            "56": {
+              "tokenAddress": "0x64b5bb3b7eF0267019fee5b826c60Cb9B7609373"
+            },
+            "8453": {
+              "tokenAddress": "0xC6FFfA0E234E5Ec80B8654Cb351dA90A092F6C95"
+            },
+            "42161": {
+              "tokenAddress": "0x1855911ab07ed5Cd056008F409b709DfA9D01183"
+            }
+          }
+        }
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/hemibtc.svg",
       "name": "Hemi Bitcoin",
