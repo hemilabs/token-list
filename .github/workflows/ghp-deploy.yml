@@ -26,7 +26,9 @@ jobs:
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
       - uses: hemilabs/actions/setup-node-env@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
-      - run: npm run build
+        with:
+          package-manager: pnpm
+      - run: pnpm run build
       - id: deployment
         uses: hemilabs/actions/deploy-to-ghp@8f87619b7f0122c39e14a32514ab3e4e0d4c3966 # v2.3.0
         with:
