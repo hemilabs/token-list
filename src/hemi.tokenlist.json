@@ -652,6 +652,18 @@
       "symbol": "uniBTC"
     },
     {
+      "address": "0xfe875CC86cC6BC2E93ab330D6b2c408C3Cd79710",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "birthBlock": 4034164,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/svusd.svg"
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/svusd.svg",
+      "name": "Staked Vetro USD",
+      "symbol": "sVUSD"
+    },
+    {
       "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
       "chainId": 743111,
       "decimals": 18,

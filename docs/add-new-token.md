@@ -42,9 +42,6 @@ The script will automatically add the information about the new token to [./src/
     "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
     "chainId": 743111,
     "decimals": 18,
-    "extensions": {
-      "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg",
-    },
     "logoURI": "https://hemilabs.github.io/token-list/logos/weth.svg",
     "name": "Wrapped Ether",
     "symbol": "WETH"
@@ -62,11 +59,11 @@ If you pay attention to the information added by the script in the previous step
 
 > The token logo can be an SVG or PNG file (it sets `svg` as default in the `logoURI`, but you can change it to `png` if needed).
 
-In addition to that, in the extensions field, a L1 logo version is added that does not include the Hemi logo in it. These logos shall be added to the [./src/l1Logos](../src/l1Logos) directory.
+Optionally, you can also add a L1 logo version that does not include the Hemi logo in it. This logo file shall be added to the [./src/l1Logos](../src/l1Logos) directory and referenced manually via the `l1LogoURI` extension (the `add-token` script does not add it for you).
 
 ```json
 "extensions": {
-  "logoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg",
+  "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg",
 }
 ```
 
