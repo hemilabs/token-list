@@ -63,7 +63,7 @@ In addition to the L2 logo, you must add a L1 logo version that does not include
 
 ```json
 "extensions": {
-  "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg",
+  "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg"
 }
 ```
 
