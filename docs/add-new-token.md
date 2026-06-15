@@ -59,7 +59,7 @@ If you pay attention to the information added by the script in the previous step
 
 > The token logo can be an SVG or PNG file (it sets `svg` as default in the `logoURI`, but you can change it to `png` if needed).
 
-Optionally, you can also add a L1 logo version that does not include the Hemi logo in it. This logo file shall be added to the [./src/l1Logos](../src/l1Logos) directory and referenced manually via the `l1LogoURI` extension (the `add-token` script does not add it for you).
+In addition to the L2 logo, you must add a L1 logo version that does not include the Hemi logo in it. This logo file shall be added to the [./src/l1Logos](../src/l1Logos) directory and referenced manually via the `l1LogoURI` extension (the `add-token` script does not add it for you).
 
 ```json
 "extensions": {
