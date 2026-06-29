@@ -41,20 +41,20 @@ const hemiEndpointId = 30329;
 
 const peersAbi = [
   {
-    type: "function",
-    name: "peers",
-    stateMutability: "view",
     inputs: [{ type: "uint32" }],
+    name: "peers",
     outputs: [{ type: "bytes32" }],
+    stateMutability: "view",
+    type: "function",
   },
 ];
 const tokenAbi = [
   {
-    type: "function",
-    name: "token",
-    stateMutability: "view",
     inputs: [],
+    name: "token",
     outputs: [{ type: "address" }],
+    stateMutability: "view",
+    type: "function",
   },
 ];
 

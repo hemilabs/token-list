@@ -22,14 +22,30 @@ const hemiExplorerUrl = (chainId, address) =>
 const etherscanUrl = (chainId, address) =>
   `https://${chainId === 1 ? "etherscan.io" : "sepolia.etherscan.io"}/token/${address}`;
 
+const copyButton = (address) => `
+<button aria-label="Copy address" class="copy-button group relative align-middle text-neutral-400 hover:text-neutral-700" data-address="${address}" type="button">
+  <span class="pointer-events-none absolute bottom-full left-1/2 mb-1 hidden -translate-x-1/2 whitespace-nowrap rounded bg-neutral-800 px-1.5 py-0.5 text-xs text-white group-hover:block">Copy</span>
+  <svg class="copy-icon size-4" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5.6 2.802a1.2 1.2 0 0 1 1.2-1.2h3.103a1.2 1.2 0 0 1 .848.352L13.25 4.45a1.2 1.2 0 0 1 .351.85v4.702a1.2 1.2 0 0 1-1.2 1.2h-.8V8.498a2.4 2.4 0 0 0-.703-1.696L8.4 4.305a2.4 2.4 0 0 0-1.697-.703H5.6v-.8Z" />
+    <path d="M3.6 4.8A1.2 1.2 0 0 0 2.4 6v7.2a1.2 1.2 0 0 0 1.2 1.2h5.6a1.2 1.2 0 0 0 1.2-1.2V8.499a1.2 1.2 0 0 0-.352-.848L7.552 5.152a1.2 1.2 0 0 0-.85-.351H3.6Z" />
+  </svg>
+  <svg class="check-icon hidden size-4 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</button>
+`;
+
 function addressLink(chainId, address) {
   const url = [43111, 743111].includes(chainId)
     ? hemiExplorerUrl(chainId, address)
     : etherscanUrl(chainId, address);
   return `
-<a class="font-mono text-neutral-500 hover:text-neutral-700" href="${url}" rel="noopener noreferrer" target="_blank" title="${address}">
-  ${shortenAddress(address)}
-</a>
+<span class="inline-flex items-center gap-1.5">
+  <a class="font-mono text-neutral-500 hover:text-neutral-700" href="${url}" rel="noopener noreferrer" target="_blank" title="${address}">
+    ${shortenAddress(address)}
+  </a>
+  ${copyButton(address)}
+</span>
 `;
 }
 
@@ -138,6 +154,21 @@ const page = ({ name, tokens, version }) => `
       const rows = document.querySelectorAll('tbody tr');
       rows.forEach(function (row) {
         row.style.display = row.id.includes(query) ? '' : 'none';
+      });
+    });
+
+    document.querySelectorAll('.copy-button').forEach(function (button) {
+      button.addEventListener('click', function () {
+        navigator.clipboard.writeText(button.getAttribute('data-address')).then(function () {
+          const copyIcon = button.querySelector('.copy-icon');
+          const checkIcon = button.querySelector('.check-icon');
+          copyIcon.classList.add('hidden');
+          checkIcon.classList.remove('hidden');
+          setTimeout(function () {
+            copyIcon.classList.remove('hidden');
+            checkIcon.classList.add('hidden');
+          }, 1500);
+        });
       });
     });
   </script>
