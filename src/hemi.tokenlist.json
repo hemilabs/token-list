@@ -652,6 +652,23 @@
       "symbol": "uniBTC"
     },
     {
+      "address": "0xfB2E53fAac872e875fbf2cf21ed9372f4422aa95",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "birthBlock": 4847127,
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x1b47d70e564afF83F09515B405c8af32a0f988a4"
+          }
+        },
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/moostakedao-vusd-crvusd.svg"
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/moostakedao-vusd-crvusd.svg",
+      "name": "Moo StakeDao VUSD-crvUSD",
+      "symbol": "mooStakeDao-VUSD-crvUSD"
+    },
+    {
       "address": "0xfe875CC86cC6BC2E93ab330D6b2c408C3Cd79710",
       "chainId": 43111,
       "decimals": 18,
