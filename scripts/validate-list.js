@@ -26,8 +26,8 @@ async function validate() {
     condition.pattern = "^\\S+( |\\S+)*$";
   }
 
-  // There's a restriction on Uniswap value that the symbols not be larger than 20 characters,
-  // That's not engouh for some token, so we extend that restiction up to 25.
+  // There's a restriction on the Uniswap schema that symbols not be larger than 20 characters.
+  // That's not enough for some tokens, so we extend that restriction up to 25.
   schema.definitions.TokenInfo.properties.symbol.maxLength = 25;
 
   // There's a restriction on Extension values that they should not be larger than 42 characters.
