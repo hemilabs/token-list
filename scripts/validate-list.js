@@ -26,6 +26,10 @@ async function validate() {
     condition.pattern = "^\\S+( |\\S+)*$";
   }
 
+  // There's a restriction on the Uniswap schema that symbols not be larger than 20 characters.
+  // That's not enough for some tokens, so we extend that restriction up to 25.
+  schema.definitions.TokenInfo.properties.symbol.maxLength = 25;
+
   // There's a restriction on Extension values that they should not be larger than 42 characters.
   // That's not enough for the l1LogoURI, so we extend that restriction up to 100 characters.
 
@@ -33,6 +37,7 @@ async function validate() {
     schema.definitions.ExtensionPrimitiveValue.anyOf.findIndex(
       ({ type }) => type === "string",
     );
+
   schema.definitions.ExtensionPrimitiveValue.anyOf[l1LogoURIIndex].maxLength =
     100;
 
