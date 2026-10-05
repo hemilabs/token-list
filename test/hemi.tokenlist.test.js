@@ -5,17 +5,16 @@ import { describe, it } from "node:test";
 import {
   checksumAddress,
   createPublicClient,
-  encodeAbiParameters,
   erc20Abi,
   http,
   isAddress,
-  keccak256,
   maxUint256,
   toHex,
 } from "viem";
 import { readContract } from "viem/actions";
 import { arbitrum, base, bsc, mainnet, optimism } from "viem/chains";
 
+import { getAllowanceStorageKey } from "../scripts/find-allowance-slot.js";
 import { getRemoteToken } from "../scripts/get-remote-token.js";
 
 const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
@@ -175,18 +174,11 @@ describe("List of tokens", function () {
           return;
         }
 
-        const ownerSlot = keccak256(
-          encodeAbiParameters(
-            [{ type: "address" }, { type: "uint256" }],
-            [allowanceOwner, BigInt(allowanceSlot)],
-          ),
-        );
-        const slot = keccak256(
-          encodeAbiParameters(
-            [{ type: "address" }, { type: "bytes32" }],
-            [allowanceSpender, ownerSlot],
-          ),
-        );
+        const slot = getAllowanceStorageKey({
+          owner: allowanceOwner,
+          slot: BigInt(allowanceSlot),
+          spender: allowanceSpender,
+        });
         const allowance = await readContract(clients[chainId], {
           abi: erc20Abi,
           address,
