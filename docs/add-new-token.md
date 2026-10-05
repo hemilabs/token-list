@@ -116,6 +116,35 @@ If the new token will be used for the tunnel you also need to add the `bridgeInf
 ...
 ```
 
+### allowanceSlot (optional)
+
+Base storage slot of the `mapping(owner => mapping(spender => uint256))`, with the owner as the outer key, so an entry sits at `keccak256(abi.encode(spender, keccak256(abi.encode(owner, allowanceSlot))))`. Tokens using ERC-7201 namespaced storage or a Vyper layout do not fit this shape, so omit the extension instead of guessing.
+
+There is no getter for it, so run the script to find it:
+
+```sh
+node scripts/find-allowance-slot.js 43111 0xad11a8BEb98bbf61dbb1aa0F6d6F2ECD87b35afA
+```
+
+The `should have the correct allowance slot` test checks every token carrying the extension, so a wrong value fails CI.
+
+```jsonc
+...
+{
+    "address": "0xad11a8BEb98bbf61dbb1aa0F6d6F2ECD87b35afA",
+    "chainId": 43111,
+    "decimals": 6,
+    "extensions": {
+        "allowanceSlot": 10, // <------
+        "birthBlock": 623077
+    },
+    "logoURI": "https://hemilabs.github.io/token-list/logos/usdc.svg",
+    "name": "Bridged USDC (Stargate)",
+    "symbol": "USDC.e"
+}
+...
+```
+
 ## Step 4 - Commit Changes
 
 Create a commit with your changes (it must be signed):

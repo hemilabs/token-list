@@ -8,10 +8,13 @@ import {
   erc20Abi,
   http,
   isAddress,
+  maxUint256,
+  toHex,
 } from "viem";
 import { readContract } from "viem/actions";
 import { arbitrum, base, bsc, mainnet, optimism } from "viem/chains";
 
+import { getAllowanceStorageKey } from "../scripts/find-allowance-slot.js";
 import { getRemoteToken } from "../scripts/get-remote-token.js";
 
 const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
@@ -38,6 +41,11 @@ const clients = Object.fromEntries(
 // LayerZero V2 endpoint ID for Hemi. Remote OFTs peer back to the Hemi adapter
 // using this id.
 const hemiEndpointId = 30329;
+
+// Any pair works to probe an allowance slot: the override writes the value
+// straight into storage, so neither address needs a balance or a prior approval.
+const allowanceOwner = "0x1111111111111111111111111111111111111111";
+const allowanceSpender = "0x2222222222222222222222222222222222222222";
 
 const peersAbi = [
   {
@@ -157,6 +165,34 @@ describe("List of tokens", function () {
         }
 
         assert.ok(Number.isInteger(birthBlock));
+      });
+
+      it("should have the correct allowance slot", async function () {
+        const { allowanceSlot } = extensions;
+        if (allowanceSlot === undefined) {
+          this.skip();
+          return;
+        }
+
+        const slot = getAllowanceStorageKey({
+          owner: allowanceOwner,
+          slot: BigInt(allowanceSlot),
+          spender: allowanceSpender,
+        });
+        const allowance = await readContract(clients[chainId], {
+          abi: erc20Abi,
+          address,
+          args: [allowanceOwner, allowanceSpender],
+          functionName: "allowance",
+          stateOverride: [
+            {
+              address,
+              stateDiff: [{ slot, value: toHex(maxUint256, { size: 32 }) }],
+            },
+          ],
+        });
+
+        assert.equal(allowance, maxUint256);
       });
 
       it("should have the correct remote token address", async function () {

@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2026-07-23T21:41:06.923Z",
+  "timestamp": "2026-10-05T18:32:30.494Z",
   "version": {
     "major": 3,
-    "minor": 4,
+    "minor": 5,
     "patch": 0
   },
   "tokens": [
@@ -419,6 +419,7 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
+        "allowanceSlot": 1,
         "birthBlock": 1125154,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/hemibtc.svg",
         "oft": {
@@ -451,6 +452,7 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
+        "allowanceSlot": 10,
         "birthBlock": 623077,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/usdc.svg"
       },
@@ -509,6 +511,7 @@
       "chainId": 43111,
       "decimals": 6,
       "extensions": {
+        "allowanceSlot": 52,
         "birthBlock": 666946,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/usdt.svg"
       },
@@ -567,6 +570,7 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
+        "allowanceSlot": 6,
         "birthBlock": 4444786,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/svetbtc.svg"
       },
@@ -673,6 +677,7 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
+        "allowanceSlot": 6,
         "birthBlock": 4034164,
         "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/svusd.svg"
       },
