@@ -5,9 +5,13 @@ import { describe, it } from "node:test";
 import {
   checksumAddress,
   createPublicClient,
+  encodeAbiParameters,
   erc20Abi,
   http,
   isAddress,
+  keccak256,
+  maxUint256,
+  toHex,
 } from "viem";
 import { readContract } from "viem/actions";
 import { arbitrum, base, bsc, mainnet, optimism } from "viem/chains";
@@ -38,6 +42,11 @@ const clients = Object.fromEntries(
 // LayerZero V2 endpoint ID for Hemi. Remote OFTs peer back to the Hemi adapter
 // using this id.
 const hemiEndpointId = 30329;
+
+// Any pair works to probe an allowance slot: the override writes the value
+// straight into storage, so neither address needs a balance or a prior approval.
+const allowanceOwner = "0x1111111111111111111111111111111111111111";
+const allowanceSpender = "0x2222222222222222222222222222222222222222";
 
 const peersAbi = [
   {
@@ -157,6 +166,41 @@ describe("List of tokens", function () {
         }
 
         assert.ok(Number.isInteger(birthBlock));
+      });
+
+      it("should have the correct allowance slot", async function () {
+        const { allowanceSlot } = extensions;
+        if (allowanceSlot === undefined) {
+          this.skip();
+          return;
+        }
+
+        const ownerSlot = keccak256(
+          encodeAbiParameters(
+            [{ type: "address" }, { type: "uint256" }],
+            [allowanceOwner, BigInt(allowanceSlot)],
+          ),
+        );
+        const slot = keccak256(
+          encodeAbiParameters(
+            [{ type: "address" }, { type: "bytes32" }],
+            [allowanceSpender, ownerSlot],
+          ),
+        );
+        const allowance = await readContract(clients[chainId], {
+          abi: erc20Abi,
+          address,
+          args: [allowanceOwner, allowanceSpender],
+          functionName: "allowance",
+          stateOverride: [
+            {
+              address,
+              stateDiff: [{ slot, value: toHex(maxUint256, { size: 32 }) }],
+            },
+          ],
+        });
+
+        assert.equal(allowance, maxUint256);
       });
 
       it("should have the correct remote token address", async function () {
