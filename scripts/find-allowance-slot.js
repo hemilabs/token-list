@@ -35,34 +35,29 @@ export const getAllowanceStorageKey = ({ owner, slot, spender }) =>
     ),
   );
 
-// Brute force: write maxUint256 into the storage key each candidate index
-// implies and read allowance() back. Only the real slot returns it. Tokens
-// that keep allowances outside a plain mapping never match.
 export async function findAllowanceSlot(client, address, lastSlot = 300n) {
   for (let slot = 0n; slot <= lastSlot; slot++) {
-    const allowance = await client
-      .readContract({
-        abi: erc20Abi,
-        address,
-        args: [probeOwner, probeSpender],
-        functionName: "allowance",
-        stateOverride: [
-          {
-            address,
-            stateDiff: [
-              {
-                slot: getAllowanceStorageKey({
-                  owner: probeOwner,
-                  slot,
-                  spender: probeSpender,
-                }),
-                value: toHex(maxUint256, { size: 32 }),
-              },
-            ],
-          },
-        ],
-      })
-      .catch(() => null);
+    const allowance = await client.readContract({
+      abi: erc20Abi,
+      address,
+      args: [probeOwner, probeSpender],
+      functionName: "allowance",
+      stateOverride: [
+        {
+          address,
+          stateDiff: [
+            {
+              slot: getAllowanceStorageKey({
+                owner: probeOwner,
+                slot,
+                spender: probeSpender,
+              }),
+              value: toHex(maxUint256, { size: 32 }),
+            },
+          ],
+        },
+      ],
+    });
     if (allowance === maxUint256) {
       return slot;
     }
