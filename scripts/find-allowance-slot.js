@@ -7,8 +7,13 @@ import {
   http,
   keccak256,
   maxUint256,
+  maxUint96,
   toHex,
 } from "viem";
+import { mainnet } from "viem/chains";
+
+// The default mainnet RPC is unreliable, so use an explicit endpoint there.
+export const rpcUrls = { [mainnet.id]: "https://eth.drpc.org" };
 
 const [filename, chainIdStr, addressGiven] = process.argv.slice(1);
 
@@ -19,7 +24,7 @@ const probeSpender = "0x2222222222222222222222222222222222222222";
 
 // Solidity lays a mapping entry at keccak256(key . slot), so the allowance of
 // an (owner, spender) pair under a base slot index lands here.
-export const getAllowanceStorageKey = ({ owner, slot, spender }) =>
+const getAllowanceStorageKey = ({ owner, slot, spender }) =>
   keccak256(
     encodeAbiParameters(
       [{ type: "address" }, { type: "bytes32" }],
@@ -35,30 +40,36 @@ export const getAllowanceStorageKey = ({ owner, slot, spender }) =>
     ),
   );
 
+export async function isAllowanceSlot({ address, client, slot }) {
+  const allowance = await client.readContract({
+    abi: erc20Abi,
+    address,
+    args: [probeOwner, probeSpender],
+    functionName: "allowance",
+    stateOverride: [
+      {
+        address,
+        stateDiff: [
+          {
+            slot: getAllowanceStorageKey({
+              owner: probeOwner,
+              slot,
+              spender: probeSpender,
+            }),
+            value: toHex(maxUint256, { size: 32 }),
+          },
+        ],
+      },
+    ],
+  });
+  // COMP and UNI pack allowances into a uint96, so the forced value reads
+  // back truncated to its maximum.
+  return allowance === maxUint256 || allowance === maxUint96;
+}
+
 export async function findAllowanceSlot(client, address, lastSlot = 300n) {
   for (let slot = 0n; slot <= lastSlot; slot++) {
-    const allowance = await client.readContract({
-      abi: erc20Abi,
-      address,
-      args: [probeOwner, probeSpender],
-      functionName: "allowance",
-      stateOverride: [
-        {
-          address,
-          stateDiff: [
-            {
-              slot: getAllowanceStorageKey({
-                owner: probeOwner,
-                slot,
-                spender: probeSpender,
-              }),
-              value: toHex(maxUint256, { size: 32 }),
-            },
-          ],
-        },
-      ],
-    });
-    if (allowance === maxUint256) {
+    if (await isAllowanceSlot({ address, client, slot })) {
       return slot;
     }
   }
@@ -68,12 +79,15 @@ export async function findAllowanceSlot(client, address, lastSlot = 300n) {
 async function printAllowanceSlot() {
   try {
     const chainId = Number.parseInt(chainIdStr);
-    const chain = [hemi, hemiSepolia].find((c) => c.id === chainId);
+    const chain = [hemi, hemiSepolia, mainnet].find((c) => c.id === chainId);
     if (!chain) {
       throw new Error("Unsupported chain");
     }
 
-    const client = createPublicClient({ chain, transport: http() });
+    const client = createPublicClient({
+      chain,
+      transport: http(rpcUrls[chain.id]),
+    });
     const slot = await findAllowanceSlot(client, toChecksum(addressGiven));
     if (slot === null) {
       throw new Error("No slot matched, the token may not use a plain mapping");
@@ -84,8 +98,8 @@ async function printAllowanceSlot() {
   }
 }
 
-// Only run this script if it is the main module. This allows importing the
-// "findAllowanceSlot" function in other scripts without side effects.
+// Only run this script if it is the main module. This allows importing
+// "isAllowanceSlot" and "rpcUrls" in other files without side effects.
 if (filename === import.meta.filename) {
   printAllowanceSlot();
 }
