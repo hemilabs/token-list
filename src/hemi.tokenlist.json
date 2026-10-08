@@ -27,6 +27,7 @@
         "birthBlock": 1686431,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 52,
             "tokenAddress": "0x68749665FF8D2d112Fa859AA293F07A622782F38"
           }
         },
@@ -44,6 +45,7 @@
         "birthBlock": 6766284,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 2,
             "tokenAddress": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
           }
         },
@@ -73,6 +75,7 @@
         "birthBlock": 782510,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 2,
             "tokenAddress": "0x18084fbA666a33d37592fA2633fD49a74DD93a88"
           }
         },
@@ -107,6 +110,7 @@
         "birthBlock": 10736094,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2"
           }
         },
@@ -124,6 +128,7 @@
         "birthBlock": 11835649,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x1b40183EFB4Dd766f11bDa7A7c3AD8982e998421"
           }
         },
@@ -152,6 +157,7 @@
         "birthBlock": 4620855,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 2,
             "tokenAddress": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2"
           }
         },
@@ -169,6 +175,7 @@
         "birthBlock": 15398777,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x2Ebd53d035150f328bd754D6DC66B99B0eDB89aa"
           }
         },
@@ -186,6 +193,7 @@
         "birthBlock": 4281611,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 2,
             "tokenAddress": "0x514910771AF9Ca656af840dff83E8264EcF986CA"
           }
         },
@@ -203,6 +211,7 @@
         "birthBlock": 2581118,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x0520930F21b14Cafac7a27b102487beE7138a017"
           }
         },
@@ -232,6 +241,7 @@
         "birthBlock": 363002,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x936Ab482d6bd111910a42849D3A51Ff80BB0A711"
           }
         },
@@ -261,6 +271,7 @@
         "birthBlock": 8928158,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 3,
             "tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
           }
         },
@@ -278,6 +289,7 @@
         "birthBlock": 10861674,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 3,
             "tokenAddress": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"
           }
         },
@@ -306,6 +318,7 @@
       "extensions": {
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x677ddbd918637E5F2c79e164D402454dE7dA8619"
           }
         },
@@ -359,6 +372,7 @@
         "birthBlock": 13411764,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x4b1D0b9F081468D780Ca1d5d79132b64301085d1"
           }
         },
@@ -376,6 +390,7 @@
         "birthBlock": 2270812,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0xEb964A1A6fAB73b8c72A0D15c7337fA4804F484d"
           }
         },
@@ -468,6 +483,7 @@
         "birthBlock": 10926829,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
           }
         },
@@ -497,6 +513,7 @@
         "birthBlock": 2680235,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 2,
             "tokenAddress": "0xae78736Cd615f374D3085123A210448E74Fc6393"
           }
         },
@@ -539,6 +556,7 @@
         "birthBlock": 11465581,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 1,
             "tokenAddress": "0x853d955aCEf822Db058eb8505911ED77F175b99e"
           }
         },
@@ -556,6 +574,7 @@
         "birthBlock": 9601359,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 0,
             "tokenAddress": "0xc00e94Cb662C3520282E6f5717214004A7f26888"
           }
         },
@@ -586,6 +605,7 @@
         "birthBlock": 19678360,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 6,
             "tokenAddress": "0x6985884C4392D348587B19cb9eAAf157F13271cd"
           }
         },
@@ -663,6 +683,7 @@
         "birthBlock": 4847127,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 52,
             "tokenAddress": "0x1b47d70e564afF83F09515B405c8af32a0f988a4"
           }
         },
