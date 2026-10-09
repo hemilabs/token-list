@@ -53,6 +53,9 @@ async function validate() {
           additionalProperties: {
             additionalProperties: false,
             properties: {
+              // Only set when the remote OFT is an adapter wrapping tokenAddress.
+              adapterAddress: { pattern: addressPattern, type: "string" },
+              allowanceSlot: { minimum: 0, type: "integer" },
               tokenAddress: { pattern: addressPattern, type: "string" },
             },
             required: ["tokenAddress"],

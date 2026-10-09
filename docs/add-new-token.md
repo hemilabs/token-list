@@ -156,6 +156,49 @@ For the token on Ethereum, add it next to its `tokenAddress` in `bridgeInfo`, an
 
 The `should have the correct allowance slot` tests check every `allowanceSlot` in the list, so a wrong value fails CI.
 
+### oft (optional)
+
+If the token is bridged with LayerZero, add the `oft` extension:
+
+- `adapterAddress`: the OFT contract on Hemi. Its `token()` must return the Hemi token address, so for a native OFT it is the token address itself.
+- `peers`: one entry per remote chain id, with the `tokenAddress` of the token on that chain.
+
+```jsonc
+...
+{
+    "address": "0xAA40c0c7644e0b2B224509571e10ad20d9C4ef28",
+    "chainId": 43111,
+    "decimals": 8,
+    "extensions": {
+        "oft": { // <------
+            "adapterAddress": "0xDefa4A253a0Ec96a2e6D74A409B3B348924bf390",
+            "peers": {
+                "1": {
+                    "tokenAddress": "0x06ea695B91700071B161A434fED42D1DcbAD9f00"
+                }
+            }
+        }
+    },
+    ...
+}
+...
+```
+
+When the remote OFT is an adapter wrapping a separate token, add the adapter as `adapterAddress` in the peer entry. An `allowanceSlot` for the remote token can be added there too (see [allowanceSlot](#allowanceslot-optional)).
+
+```jsonc
+"oft": {
+  "adapterAddress": "0xfF16E26B7fFCf24c378D57DF536dC5eC104a7dE4",
+  "peers": {
+    "1": {
+      "adapterAddress": "0x63413dA01EE7E1cec9d51EE27B3FAf81d786821c", // <------
+      "allowanceSlot": 1,
+      "tokenAddress": "0xf196C68233464A16CFDa319a47c21f4cECa62001"
+    }
+  }
+}
+```
+
 ## Step 4 - Commit Changes
 
 Create a commit with your changes (it must be signed):

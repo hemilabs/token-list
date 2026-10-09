@@ -707,6 +707,29 @@
       "symbol": "sVUSD"
     },
     {
+      "address": "0xfF16E26B7fFCf24c378D57DF536dC5eC104a7dE4",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "allowanceSlot": 6,
+        "birthBlock": 5107748,
+        "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/vetbtc.svg",
+        "oft": {
+          "adapterAddress": "0xfF16E26B7fFCf24c378D57DF536dC5eC104a7dE4",
+          "peers": {
+            "1": {
+              "adapterAddress": "0x63413dA01EE7E1cec9d51EE27B3FAf81d786821c",
+              "allowanceSlot": 1,
+              "tokenAddress": "0xf196C68233464A16CFDa319a47c21f4cECa62001"
+            }
+          }
+        }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/vetbtc.svg",
+      "name": "Vetro BTC",
+      "symbol": "vetBTC"
+    },
+    {
       "address": "0x0C8aFD1b58aa2A5bAd2414B861D8A7fF898eDC3A",
       "chainId": 743111,
       "decimals": 18,

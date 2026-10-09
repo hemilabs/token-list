@@ -96,9 +96,13 @@ describe("List of tokens", function () {
         );
         if (extensions.oft) {
           assert.ok(isChecksummed(extensions.oft.adapterAddress));
-          Object.values(extensions.oft.peers).forEach(({ tokenAddress }) =>
-            assert.ok(isChecksummed(tokenAddress)),
-          );
+          Object.values(extensions.oft.peers)
+            .flatMap(({ adapterAddress, tokenAddress }) =>
+              adapterAddress === undefined
+                ? [tokenAddress]
+                : [adapterAddress, tokenAddress],
+            )
+            .forEach((value) => assert.ok(isChecksummed(value)));
         }
       });
 
@@ -199,6 +203,28 @@ describe("List of tokens", function () {
         }
       });
 
+      it("should have the correct allowance slot in its OFT peers", async function () {
+        const peers = Object.entries(extensions.oft?.peers ?? {}).filter(
+          ([, { allowanceSlot }]) => allowanceSlot !== undefined,
+        );
+        if (!peers.length) {
+          this.skip();
+          return;
+        }
+
+        for (const [remoteChainId, { allowanceSlot, tokenAddress }] of peers) {
+          const client = clients[remoteChainId];
+          assert.ok(client, `no client configured for chain ${remoteChainId}`);
+          assert.ok(
+            await isAllowanceSlot({
+              address: tokenAddress,
+              client,
+              slot: BigInt(allowanceSlot),
+            }),
+          );
+        }
+      });
+
       it("should have the correct remote token address", async function () {
         const client = clients[chainId];
         const tokenAddress =
@@ -231,14 +257,24 @@ describe("List of tokens", function () {
         assert.equal(adapterToken, address);
 
         // Every peer OFT must point back to the Hemi adapter.
-        for (const [remoteChainId, { tokenAddress }] of Object.entries(
-          oft.peers,
-        )) {
+        for (const [
+          remoteChainId,
+          { adapterAddress, tokenAddress },
+        ] of Object.entries(oft.peers)) {
           const client = clients[remoteChainId];
           assert.ok(client, `no client configured for chain ${remoteChainId}`);
+          if (adapterAddress !== undefined) {
+            const remoteAdapterToken = await readContract(client, {
+              abi: tokenAbi,
+              address: adapterAddress,
+              args: [],
+              functionName: "token",
+            });
+            assert.equal(remoteAdapterToken, tokenAddress);
+          }
           const peer = await readContract(client, {
             abi: peersAbi,
-            address: tokenAddress,
+            address: adapterAddress ?? tokenAddress,
             args: [hemiEndpointId],
             functionName: "peers",
           });
