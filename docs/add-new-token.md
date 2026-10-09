@@ -118,15 +118,13 @@ If the new token will be used for the tunnel you also need to add the `bridgeInf
 
 ### allowanceSlot (optional)
 
-Base storage slot of the `mapping(owner => mapping(spender => uint256))`, with the owner as the outer key, so an entry sits at `keccak256(abi.encode(spender, keccak256(abi.encode(owner, allowanceSlot))))`. Tokens using ERC-7201 namespaced storage or a Vyper layout do not fit this shape, so omit the extension instead of guessing.
+Base storage slot of the `mapping(owner => mapping(spender => uint256))` (or `uint96`, as in COMP and UNI), with the owner as the outer key, so an entry sits at `keccak256(abi.encode(spender, keccak256(abi.encode(owner, allowanceSlot))))`. Tokens using ERC-7201 namespaced storage or a Vyper layout do not fit this shape, so omit the extension instead of guessing.
 
 There is no getter for it, so run the script to find it:
 
 ```sh
 node scripts/find-allowance-slot.js 43111 0xad11a8BEb98bbf61dbb1aa0F6d6F2ECD87b35afA
 ```
-
-The `should have the correct allowance slot` test checks every token carrying the extension, so a wrong value fails CI.
 
 ```jsonc
 ...
@@ -144,6 +142,19 @@ The `should have the correct allowance slot` test checks every token carrying th
 }
 ...
 ```
+
+For the token on Ethereum, add it next to its `tokenAddress` in `bridgeInfo`, and pass chain id `1` to the script.
+
+```jsonc
+"bridgeInfo": {
+  "1": {
+    "allowanceSlot": 3, // <------
+    "tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+  }
+}
+```
+
+The `should have the correct allowance slot` tests check every `allowanceSlot` in the list, so a wrong value fails CI.
 
 ## Step 4 - Commit Changes
 
