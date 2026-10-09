@@ -10,7 +10,7 @@ import {
   isAddress,
 } from "viem";
 import { readContract } from "viem/actions";
-import { arbitrum, base, bsc, mainnet, optimism } from "viem/chains";
+import { arbitrum, base, bsc, mainnet, optimism, sepolia } from "viem/chains";
 
 import { isAllowanceSlot, rpcUrls } from "../scripts/find-allowance-slot.js";
 import { getRemoteToken } from "../scripts/get-remote-token.js";
@@ -25,13 +25,15 @@ const tokenList = JSON.parse(
 // Cap each request at 5s and disable retries so an unresponsive or rate-limited
 // public RPC fails fast instead of hanging on retry/Retry-After backoff.
 const clients = Object.fromEntries(
-  [hemi, hemiSepolia, mainnet, optimism, bsc, base, arbitrum].map((chain) => [
-    chain.id,
-    createPublicClient({
-      chain,
-      transport: http(rpcUrls[chain.id], { retryCount: 0, timeout: 5000 }),
-    }),
-  ]),
+  [hemi, hemiSepolia, mainnet, sepolia, optimism, bsc, base, arbitrum].map(
+    (chain) => [
+      chain.id,
+      createPublicClient({
+        chain,
+        transport: http(rpcUrls[chain.id], { retryCount: 0, timeout: 5000 }),
+      }),
+    ],
+  ),
 );
 
 // LayerZero V2 endpoint ID for Hemi. Remote OFTs peer back to the Hemi adapter
@@ -225,6 +227,33 @@ describe("List of tokens", function () {
         }
       });
 
+      it("should have ERC20 remote tokens", async function () {
+        const remoteTokens = [
+          ...Object.entries(extensions.bridgeInfo ?? {}),
+          ...Object.entries(extensions.oft?.peers ?? {}),
+        ];
+        if (!remoteTokens.length) {
+          this.skip();
+          return;
+        }
+
+        for (const [remoteChainId, { tokenAddress }] of remoteTokens) {
+          const client = clients[remoteChainId];
+          assert.ok(client, `no client configured for chain ${remoteChainId}`);
+          // name and symbol are optional in EIP-20 (and bytes32 in MKR).
+          await Promise.all(
+            ["decimals", "totalSupply"].map((method) =>
+              readContract(client, {
+                abi: erc20Abi,
+                address: tokenAddress,
+                args: [],
+                functionName: /** @type {'decimals'|'totalSupply'} */ (method),
+              }),
+            ),
+          );
+        }
+      });
+
       it("should have the correct remote token address", async function () {
         const client = clients[chainId];
         const tokenAddress =
@@ -263,15 +292,14 @@ describe("List of tokens", function () {
         ] of Object.entries(oft.peers)) {
           const client = clients[remoteChainId];
           assert.ok(client, `no client configured for chain ${remoteChainId}`);
-          if (adapterAddress !== undefined) {
-            const remoteAdapterToken = await readContract(client, {
-              abi: tokenAbi,
-              address: adapterAddress,
-              args: [],
-              functionName: "token",
-            });
-            assert.equal(remoteAdapterToken, tokenAddress);
-          }
+          // A native OFT (no adapter) must return itself as its token.
+          const remoteAdapterToken = await readContract(client, {
+            abi: tokenAbi,
+            address: adapterAddress ?? tokenAddress,
+            args: [],
+            functionName: "token",
+          });
+          assert.equal(remoteAdapterToken, tokenAddress);
           const peer = await readContract(client, {
             abi: peersAbi,
             address: adapterAddress ?? tokenAddress,
