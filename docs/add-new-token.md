@@ -2,6 +2,8 @@
 
 The goal of this guide is to walk you through the steps needed to add a new token to the token list.
 
+The list only holds data that can be verified on chain. Anything that can be derived from other data, or is presentation-only, does not belong in it.
+
 ## Before you begin
 
 You need to have some information about the token you want to add to the list before you begin this process:
@@ -59,13 +61,7 @@ If you pay attention to the information added by the script in the previous step
 
 > The token logo can be an SVG or PNG file (it sets `svg` as default in the `logoURI`, but you can change it to `png` if needed).
 
-In addition to the L2 logo, you must add a L1 logo version that does not include the Hemi logo in it. This logo file shall be added to the [./src/l1Logos](../src/l1Logos) directory and referenced manually via the `l1LogoURI` extension (the `add-token` script does not add it for you).
-
-```json
-"extensions": {
-  "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg"
-}
-```
+In addition to the L2 logo, you must add a L1 logo version that does not include the Hemi logo in it. This logo file shall be added to the [./src/l1Logos](../src/l1Logos) directory with the same file name and extension as the L2 one (e.g. `weth.svg`). It is not referenced from the list: its URL is the `logoURI` with `/logos/` replaced by `/l1Logos/`.
 
 ## Step 3 - Add the rest of the optional Extensions values
 
@@ -93,7 +89,7 @@ You can get the `birthBlock` number from Hemi Explorer, just check the block num
 
 ### bridgeInfo (optional)
 
-If the new token will be used for the tunnel you also need to add the `bridgeInfo` data to the JSON file (if it does not have it already).
+`bridgeInfo` maps each remote chain id to the canonical remote token on the standard bridge, that is, the token the Hemi token is bridged from through the tunnel. If the new token will be used for the tunnel you also need to add the `bridgeInfo` data to the JSON file (if it does not have it already).
 
 ```jsonc
 ...

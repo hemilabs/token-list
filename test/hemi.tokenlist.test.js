@@ -136,22 +136,15 @@ describe("List of tokens", function () {
           .replaceAll(" ", "-")
           .toLowerCase();
 
-        const getFilePath = (uri, folder) =>
-          uri.match(
-            new RegExp(
-              `^${pagesUrl.replaceAll(".", "\\.")}/${folder}/${filename}\\.(svg|png)$`,
-            ),
-          );
+        const match = logoURI.match(
+          new RegExp(
+            `^${pagesUrl.replaceAll(".", "\\.")}/logos/(${filename}\\.(svg|png))$`,
+          ),
+        );
 
-        const l2LogoFilePath = getFilePath(logoURI, "logos");
-
-        const l1LogoFilePath = getFilePath(extensions.l1LogoURI, "l1Logos");
-
-        assert.notEqual(l2LogoFilePath, null);
-        fs.accessSync(l2LogoFilePath[0].replace(`${pagesUrl}/`, "src/"));
-
-        assert.notEqual(l1LogoFilePath, null);
-        fs.accessSync(l1LogoFilePath[0].replace(`${pagesUrl}/`, "src/"));
+        assert.notEqual(match, null);
+        fs.accessSync(`src/logos/${match[1]}`);
+        fs.accessSync(`src/l1Logos/${match[1]}`);
       });
 
       it("should have a valid birth block number", function () {

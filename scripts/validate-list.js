@@ -30,17 +30,6 @@ async function validate() {
   // That's not enough for some tokens, so we extend that restriction up to 25.
   schema.definitions.TokenInfo.properties.symbol.maxLength = 25;
 
-  // There's a restriction on Extension values that they should not be larger than 42 characters.
-  // That's not enough for the l1LogoURI, so we extend that restriction up to 100 characters.
-
-  const l1LogoURIIndex =
-    schema.definitions.ExtensionPrimitiveValue.anyOf.findIndex(
-      ({ type }) => type === "string",
-    );
-
-  schema.definitions.ExtensionPrimitiveValue.anyOf[l1LogoURIIndex].maxLength =
-    100;
-
   // The "oft" extension describes LayerZero bridging and is too deeply nested for
   // the generic ExtensionValue schema, so it is validated with an explicit shape.
   const addressPattern = "^0x[a-fA-F0-9]{40}$";
