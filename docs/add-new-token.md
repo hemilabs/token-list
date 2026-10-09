@@ -2,7 +2,7 @@
 
 The goal of this guide is to walk you through the steps needed to add a new token to the token list.
 
-The list only holds data that can be verified on chain. Anything that can be derived from other data, or is presentation-only, does not belong in it.
+With the exception of token logo metadata, the list only holds data that can be verified on chain. Other data that can be derived from on-chain fields, or is presentation-only, does not belong in it.
 
 ## Before you begin
 
