@@ -10,7 +10,7 @@ import {
   isAddress,
 } from "viem";
 import { readContract } from "viem/actions";
-import { arbitrum, base, bsc, mainnet, optimism } from "viem/chains";
+import { arbitrum, base, bsc, mainnet, optimism, sepolia } from "viem/chains";
 
 import { isAllowanceSlot, rpcUrls } from "../scripts/find-allowance-slot.js";
 import { getRemoteToken } from "../scripts/get-remote-token.js";
@@ -25,13 +25,15 @@ const tokenList = JSON.parse(
 // Cap each request at 5s and disable retries so an unresponsive or rate-limited
 // public RPC fails fast instead of hanging on retry/Retry-After backoff.
 const clients = Object.fromEntries(
-  [hemi, hemiSepolia, mainnet, optimism, bsc, base, arbitrum].map((chain) => [
-    chain.id,
-    createPublicClient({
-      chain,
-      transport: http(rpcUrls[chain.id], { retryCount: 0, timeout: 5000 }),
-    }),
-  ]),
+  [hemi, hemiSepolia, mainnet, sepolia, optimism, bsc, base, arbitrum].map(
+    (chain) => [
+      chain.id,
+      createPublicClient({
+        chain,
+        transport: http(rpcUrls[chain.id], { retryCount: 0, timeout: 5000 }),
+      }),
+    ],
+  ),
 );
 
 // LayerZero V2 endpoint ID for Hemi. Remote OFTs peer back to the Hemi adapter
@@ -96,9 +98,13 @@ describe("List of tokens", function () {
         );
         if (extensions.oft) {
           assert.ok(isChecksummed(extensions.oft.adapterAddress));
-          Object.values(extensions.oft.peers).forEach(({ tokenAddress }) =>
-            assert.ok(isChecksummed(tokenAddress)),
-          );
+          Object.values(extensions.oft.peers)
+            .flatMap(({ adapterAddress, tokenAddress }) =>
+              adapterAddress === undefined
+                ? [tokenAddress]
+                : [adapterAddress, tokenAddress],
+            )
+            .forEach((value) => assert.ok(isChecksummed(value)));
         }
       });
 
@@ -130,22 +136,15 @@ describe("List of tokens", function () {
           .replaceAll(" ", "-")
           .toLowerCase();
 
-        const getFilePath = (uri, folder) =>
-          uri.match(
-            new RegExp(
-              `^${pagesUrl.replaceAll(".", "\\.")}/${folder}/${filename}\\.(svg|png)$`,
-            ),
-          );
+        const match = logoURI.match(
+          new RegExp(
+            `^${pagesUrl.replaceAll(".", "\\.")}/logos/(${filename}\\.(svg|png))$`,
+          ),
+        );
 
-        const l2LogoFilePath = getFilePath(logoURI, "logos");
-
-        const l1LogoFilePath = getFilePath(extensions.l1LogoURI, "l1Logos");
-
-        assert.notEqual(l2LogoFilePath, null);
-        fs.accessSync(l2LogoFilePath[0].replace(`${pagesUrl}/`, "src/"));
-
-        assert.notEqual(l1LogoFilePath, null);
-        fs.accessSync(l1LogoFilePath[0].replace(`${pagesUrl}/`, "src/"));
+        assert.notEqual(match, null);
+        fs.accessSync(`src/logos/${match[1]}`);
+        fs.accessSync(`src/l1Logos/${match[1]}`);
       });
 
       it("should have a valid birth block number", function () {
@@ -199,6 +198,55 @@ describe("List of tokens", function () {
         }
       });
 
+      it("should have the correct allowance slot in its OFT peers", async function () {
+        const peers = Object.entries(extensions.oft?.peers ?? {}).filter(
+          ([, { allowanceSlot }]) => allowanceSlot !== undefined,
+        );
+        if (!peers.length) {
+          this.skip();
+          return;
+        }
+
+        for (const [remoteChainId, { allowanceSlot, tokenAddress }] of peers) {
+          const client = clients[remoteChainId];
+          assert.ok(client, `no client configured for chain ${remoteChainId}`);
+          assert.ok(
+            await isAllowanceSlot({
+              address: tokenAddress,
+              client,
+              slot: BigInt(allowanceSlot),
+            }),
+          );
+        }
+      });
+
+      it("should have ERC20 remote tokens", async function () {
+        const remoteTokens = [
+          ...Object.entries(extensions.bridgeInfo ?? {}),
+          ...Object.entries(extensions.oft?.peers ?? {}),
+        ];
+        if (!remoteTokens.length) {
+          this.skip();
+          return;
+        }
+
+        for (const [remoteChainId, { tokenAddress }] of remoteTokens) {
+          const client = clients[remoteChainId];
+          assert.ok(client, `no client configured for chain ${remoteChainId}`);
+          // name and symbol are optional in EIP-20 (and bytes32 in MKR).
+          await Promise.all(
+            ["decimals", "totalSupply"].map((method) =>
+              readContract(client, {
+                abi: erc20Abi,
+                address: tokenAddress,
+                args: [],
+                functionName: /** @type {'decimals'|'totalSupply'} */ (method),
+              }),
+            ),
+          );
+        }
+      });
+
       it("should have the correct remote token address", async function () {
         const client = clients[chainId];
         const tokenAddress =
@@ -231,14 +279,23 @@ describe("List of tokens", function () {
         assert.equal(adapterToken, address);
 
         // Every peer OFT must point back to the Hemi adapter.
-        for (const [remoteChainId, { tokenAddress }] of Object.entries(
-          oft.peers,
-        )) {
+        for (const [
+          remoteChainId,
+          { adapterAddress, tokenAddress },
+        ] of Object.entries(oft.peers)) {
           const client = clients[remoteChainId];
           assert.ok(client, `no client configured for chain ${remoteChainId}`);
+          // A native OFT (no adapter) must return itself as its token.
+          const remoteAdapterToken = await readContract(client, {
+            abi: tokenAbi,
+            address: adapterAddress ?? tokenAddress,
+            args: [],
+            functionName: "token",
+          });
+          assert.equal(remoteAdapterToken, tokenAddress);
           const peer = await readContract(client, {
             abi: peersAbi,
-            address: tokenAddress,
+            address: adapterAddress ?? tokenAddress,
             args: [hemiEndpointId],
             functionName: "peers",
           });

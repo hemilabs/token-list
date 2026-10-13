@@ -10,10 +10,13 @@ import {
   maxUint96,
   toHex,
 } from "viem";
-import { mainnet } from "viem/chains";
+import { mainnet, sepolia } from "viem/chains";
 
-// The default mainnet RPC is unreliable, so use an explicit endpoint there.
-export const rpcUrls = { [mainnet.id]: "https://eth.drpc.org" };
+// The default Ethereum RPCs are unreliable, so use explicit endpoints there.
+export const rpcUrls = {
+  [mainnet.id]: "https://eth.drpc.org",
+  [sepolia.id]: "https://ethereum-sepolia-rpc.publicnode.com",
+};
 
 const [filename, chainIdStr, addressGiven] = process.argv.slice(1);
 

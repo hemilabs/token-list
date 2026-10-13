@@ -2,6 +2,8 @@
 
 The goal of this guide is to walk you through the steps needed to add a new token to the token list.
 
+With the exception of token logo metadata, the list only holds data that can be verified on chain. Other data that can be derived from on-chain fields, or is presentation-only, does not belong in it.
+
 ## Before you begin
 
 You need to have some information about the token you want to add to the list before you begin this process:
@@ -59,13 +61,7 @@ If you pay attention to the information added by the script in the previous step
 
 > The token logo can be an SVG or PNG file (it sets `svg` as default in the `logoURI`, but you can change it to `png` if needed).
 
-In addition to the L2 logo, you must add a L1 logo version that does not include the Hemi logo in it. This logo file shall be added to the [./src/l1Logos](../src/l1Logos) directory and referenced manually via the `l1LogoURI` extension (the `add-token` script does not add it for you).
-
-```json
-"extensions": {
-  "l1LogoURI": "https://hemilabs.github.io/token-list/l1Logos/weth.svg"
-}
-```
+In addition to the L2 logo, you must add a L1 logo version that does not include the Hemi logo in it. This logo file shall be added to the [./src/l1Logos](../src/l1Logos) directory with the same file name and extension as the L2 one (e.g. `weth.svg`). It is not referenced from the list: its URL is the `logoURI` with `/logos/` replaced by `/l1Logos/`.
 
 ## Step 3 - Add the rest of the optional Extensions values
 
@@ -93,7 +89,7 @@ You can get the `birthBlock` number from Hemi Explorer, just check the block num
 
 ### bridgeInfo (optional)
 
-If the new token will be used for the tunnel you also need to add the `bridgeInfo` data to the JSON file (if it does not have it already).
+`bridgeInfo` maps each remote chain id to the canonical remote token on the standard bridge, that is, the token the Hemi token is bridged from through the tunnel. If the new token will be used for the tunnel you also need to add the `bridgeInfo` data to the JSON file (if it does not have it already).
 
 ```jsonc
 ...
@@ -155,6 +151,49 @@ For the token on Ethereum, add it next to its `tokenAddress` in `bridgeInfo`, an
 ```
 
 The `should have the correct allowance slot` tests check every `allowanceSlot` in the list, so a wrong value fails CI.
+
+### oft (optional)
+
+If the token is bridged with LayerZero, add the `oft` extension:
+
+- `adapterAddress`: the OFT contract on Hemi. Its `token()` must return the Hemi token address, so for a native OFT it is the token address itself.
+- `peers`: one entry per remote chain id, with the `tokenAddress` of the token on that chain.
+
+```jsonc
+...
+{
+    "address": "0xAA40c0c7644e0b2B224509571e10ad20d9C4ef28",
+    "chainId": 43111,
+    "decimals": 8,
+    "extensions": {
+        "oft": { // <------
+            "adapterAddress": "0xDefa4A253a0Ec96a2e6D74A409B3B348924bf390",
+            "peers": {
+                "1": {
+                    "tokenAddress": "0x06ea695B91700071B161A434fED42D1DcbAD9f00"
+                }
+            }
+        }
+    },
+    ...
+}
+...
+```
+
+When the remote OFT is an adapter wrapping a separate token, add the adapter as `adapterAddress` in the peer entry. An `allowanceSlot` for the remote token can be added there too (see [allowanceSlot](#allowanceslot-optional)).
+
+```jsonc
+"oft": {
+  "adapterAddress": "0xfF16E26B7fFCf24c378D57DF536dC5eC104a7dE4",
+  "peers": {
+    "1": {
+      "adapterAddress": "0x63413dA01EE7E1cec9d51EE27B3FAf81d786821c", // <------
+      "allowanceSlot": 1,
+      "tokenAddress": "0xf196C68233464A16CFDa319a47c21f4cECa62001"
+    }
+  }
+}
+```
 
 ## Step 4 - Commit Changes
 
