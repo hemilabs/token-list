@@ -71,7 +71,9 @@ describe("List of tokens", function () {
   it("should not be any duplicates", function () {
     assert.equal(
       new Set(
-        tokenList.tokens.map(({ chainId, symbol }) => `${chainId}:${symbol}`),
+        tokenList.tokens.map(
+          ({ address, chainId }) => `${chainId}:${address.toLowerCase()}`,
+        ),
       ).size,
       tokenList.tokens.length,
     );
@@ -130,11 +132,16 @@ describe("List of tokens", function () {
           return;
         }
         const pagesUrl = "https://hemilabs.github.io/token-list";
-        const filename = symbol
-          .toLowerCase()
-          .replace(".e", "")
-          .replaceAll(" ", "-")
-          .toLowerCase();
+        const logoFilenames = {
+          "0x7A06C4AeF988e7925575C50261297a946aD204A8": "vesperUSD",
+        };
+        const filename =
+          logoFilenames[address] ??
+          symbol
+            .toLowerCase()
+            .replace(".e", "")
+            .replaceAll(" ", "-")
+            .toLowerCase();
 
         const match = logoURI.match(
           new RegExp(
