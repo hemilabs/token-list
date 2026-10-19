@@ -302,7 +302,7 @@
           }
         }
       },
-      "logoURI": "https://hemilabs.github.io/token-list/logos/vusd.svg",
+      "logoURI": "https://hemilabs.github.io/token-list/logos/vesperUSD.svg",
       "name": "VUSD",
       "symbol": "VUSD"
     },
@@ -548,12 +548,67 @@
       "symbol": "COMP"
     },
     {
+      "address": "0xD3599AE62EE280709A22268a46d23164214e345B",
+      "chainId": 43111,
+      "decimals": 18,
+      "extensions": {
+        "allowanceSlot": 6,
+        "birthBlock": 4012938,
+        "oft": {
+          "adapterAddress": "0xD3599AE62EE280709A22268a46d23164214e345B",
+          "peers": {
+            "1": {
+              "adapterAddress": "0xFc8Acf5ef1E8839Ec94151740CfEd95D7E579Afb",
+              "allowanceSlot": 1,
+              "tokenAddress": "0xCa83DDE9c22254f58e771bE5E157773212AcBAc3"
+            },
+            "10": {
+              "tokenAddress": "0xb591169E6508983CC6618738cC73c9F09c38dE14"
+            },
+            "56": {
+              "tokenAddress": "0x10061d0593441Ff74536158592e1Be3F4C7B180C"
+            },
+            "8453": {
+              "tokenAddress": "0x8a654093e21703afc8d038FF253A3c974C5C2957"
+            },
+            "42161": {
+              "tokenAddress": "0xCE2c108fB49551f6d27BBb529Ad1938835ac3574"
+            }
+          }
+        }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/vusd.svg",
+      "name": "Vetro USD",
+      "symbol": "VUSD"
+    },
+    {
       "address": "0xD8D63De3b64bd06d99F8F5AD8B78Ed2fE7525eC0",
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
         "allowanceSlot": 6,
-        "birthBlock": 4444786
+        "birthBlock": 4444786,
+        "oft": {
+          "adapterAddress": "0xD8D63De3b64bd06d99F8F5AD8B78Ed2fE7525eC0",
+          "peers": {
+            "1": {
+              "adapterAddress": "0x010F0Bd6576949e6ac6eEa11Ed8C535388340e94",
+              "tokenAddress": "0x0cB9D84d4bcEc8d3D5B2d99a6F07f4605325987e"
+            },
+            "10": {
+              "tokenAddress": "0x62D2A7D31e8a61a7aCD472c98c657E053EB01b96"
+            },
+            "56": {
+              "tokenAddress": "0x37D8C0AFeeF48AA9D925475CF6c73E4D8c74d931"
+            },
+            "8453": {
+              "tokenAddress": "0x781aea37b81F3CF3Fb9a97E9568BdAF36d2DEF3d"
+            },
+            "42161": {
+              "tokenAddress": "0x54181404A037757eb5271Ee4a02CA51844f25eaA"
+            }
+          }
+        }
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/svetbtc.svg",
       "name": "Staked Vetro BTC",
@@ -654,7 +709,28 @@
       "decimals": 18,
       "extensions": {
         "allowanceSlot": 6,
-        "birthBlock": 4034164
+        "birthBlock": 4034164,
+        "oft": {
+          "adapterAddress": "0xfe875CC86cC6BC2E93ab330D6b2c408C3Cd79710",
+          "peers": {
+            "1": {
+              "adapterAddress": "0x968563eeD04e0289ccC79d7029bFc79F040605f0",
+              "tokenAddress": "0x476310E34D2810f7d79C43A74E4D79405bd7a925"
+            },
+            "10": {
+              "tokenAddress": "0x92273Ca3356379C2fe870FE3805cc5e7aB6d19c6"
+            },
+            "56": {
+              "tokenAddress": "0xC141B66eE4262Ba46Ea29578955C274fD4A96515"
+            },
+            "8453": {
+              "tokenAddress": "0xb174750002068862Dfe7DF38F974a950F189386a"
+            },
+            "42161": {
+              "tokenAddress": "0x50c580227764b621c0433bB6Ab756C781c495ce7"
+            }
+          }
+        }
       },
       "logoURI": "https://hemilabs.github.io/token-list/logos/svusd.svg",
       "name": "Staked Vetro USD",
@@ -674,6 +750,18 @@
               "adapterAddress": "0x63413dA01EE7E1cec9d51EE27B3FAf81d786821c",
               "allowanceSlot": 1,
               "tokenAddress": "0xf196C68233464A16CFDa319a47c21f4cECa62001"
+            },
+            "10": {
+              "tokenAddress": "0x974af4a481895FB9A29829F87980088f6B93E1DF"
+            },
+            "56": {
+              "tokenAddress": "0xD46ac62F9C145B64146AFadB848476B209b6b420"
+            },
+            "8453": {
+              "tokenAddress": "0x605EDFDA1EA02cE9d2d2702e31064867F67aF043"
+            },
+            "42161": {
+              "tokenAddress": "0x0b874b240eF6D9d9543dBDEB224CDDC4BA71FD0f"
             }
           }
         }
