@@ -195,6 +195,8 @@ When the remote OFT is an adapter wrapping a separate token, add the adapter as 
 }
 ```
 
+A remote token is not unique to one Hemi token. The same remote token can be reached through the standard bridge from one Hemi token and through LayerZero from another. For example, Ethereum cbBTC is the `bridgeInfo` token of `0x1596bE338B999E2376675C908168A7548C8B0525` and is wrapped by the Stargate adapter peered with `0x9778bC12904DB935Ca8be4fae26636BF7D6Da456`. Both Hemi tokens are listed, and they share the same logo.
+
 ## Step 4 - Commit Changes
 
 Create a commit with your changes (it must be signed):
