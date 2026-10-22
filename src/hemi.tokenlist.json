@@ -297,6 +297,7 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
+        "birthBlock": 1134288,
         "bridgeInfo": {
           "1": {
             "allowanceSlot": 1,
