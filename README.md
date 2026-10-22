@@ -47,3 +47,13 @@ To run the tests, run:
 ```sh
 pnpm test
 ```
+
+## Release
+
+Once the changes land into `master`, tag the commit, push it and publish a release.
+That will trigger the action to publish the new version of the package in NPM.
+
+```sh
+git tag --sign --message="" v$(jq --raw-output '.version' <package.json)
+git push --tags
+```
