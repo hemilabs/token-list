@@ -1,9 +1,9 @@
 {
   "name": "Hemi Token List",
-  "timestamp": "2026-10-19T20:57:40.581Z",
+  "timestamp": "2026-10-22T23:30:50.381Z",
   "version": {
     "major": 4,
-    "minor": 1,
+    "minor": 2,
     "patch": 0
   },
   "tokens": [
@@ -85,9 +85,11 @@
       "chainId": 43111,
       "decimals": 8,
       "extensions": {
+        "allowanceSlot": 1,
         "birthBlock": 2703949,
         "bridgeInfo": {
           "1": {
+            "allowanceSlot": 10,
             "tokenAddress": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
           }
         }
@@ -295,6 +297,7 @@
       "chainId": 43111,
       "decimals": 18,
       "extensions": {
+        "birthBlock": 1134288,
         "bridgeInfo": {
           "1": {
             "allowanceSlot": 1,
@@ -338,6 +341,28 @@
       "logoURI": "https://hemilabs.github.io/token-list/logos/brbtc.png",
       "name": "brBTC",
       "symbol": "brBTC"
+    },
+    {
+      "address": "0x9778bC12904DB935Ca8be4fae26636BF7D6Da456",
+      "chainId": 43111,
+      "decimals": 8,
+      "extensions": {
+        "allowanceSlot": 6,
+        "birthBlock": 3783144,
+        "oft": {
+          "adapterAddress": "0x9778bC12904DB935Ca8be4fae26636BF7D6Da456",
+          "peers": {
+            "1": {
+              "adapterAddress": "0x35CA6624E88898eB909A5B81195AE26A2aA9AA3a",
+              "allowanceSlot": 10,
+              "tokenAddress": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+            }
+          }
+        }
+      },
+      "logoURI": "https://hemilabs.github.io/token-list/logos/cbbtc.svg",
+      "name": "Coinbase Wrapped BTC",
+      "symbol": "cbBTC"
     },
     {
       "address": "0x98D6E32f3092D39A6c0B36062cC9EB1E52Ccc99D",

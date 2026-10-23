@@ -195,6 +195,8 @@ When the remote OFT is an adapter wrapping a separate token, add the adapter as 
 }
 ```
 
+A remote token is not unique to one Hemi token. The same remote token can be reached through the standard bridge from one Hemi token and through LayerZero from another. For example, Ethereum cbBTC is the `bridgeInfo` token of `0x1596bE338B999E2376675C908168A7548C8B0525` and is wrapped by the Stargate adapter peered with `0x9778bC12904DB935Ca8be4fae26636BF7D6Da456`. Both Hemi tokens are listed, and they share the same logo.
+
 ## Step 4 - Commit Changes
 
 Create a commit with your changes (it must be signed):
@@ -211,9 +213,9 @@ The changes you did in the code will be checked automatically in terms of format
 You can only use the new token you added if you generate a new package version for it and that can be done by running:
 
 ```sh
-pnpm version minor
+pnpm version minor --no-git-tag-version
 ```
 
-This command will increase the minor version by 1 and add a tag to the commit you created in the previous step.
+This command will increase the minor version by 1 without creating a commit or a tag. Commit the change, and tag the release only after the PR is merged, as described in the [README](../README.md#release).
 
 After that you can finally create a PR and, once merged, you have to wait for the new release to be published to use it anywhere you want it.

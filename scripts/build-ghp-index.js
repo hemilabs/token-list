@@ -49,10 +49,17 @@ function addressLink(chainId, address) {
 `;
 }
 
+const oftLabel = `
+<span class="ml-1.5 rounded bg-neutral-200 px-1.5 py-0.5 align-middle text-xs text-neutral-600" title="LayerZero OFT">OFT</span>
+`;
+
 function row({ address, chainId, extensions, logoURI, name, symbol }) {
   const chainName = chainId === 43111 ? "Hemi" : "Hemi Sepolia";
   const l1ChainId = chainId === 43111 ? 1 : 11155111;
-  const l1Address = extensions?.bridgeInfo?.[l1ChainId]?.tokenAddress || "";
+  const l1Address =
+    extensions?.bridgeInfo?.[l1ChainId]?.tokenAddress ||
+    extensions?.oft?.peers?.[l1ChainId]?.tokenAddress ||
+    "";
   const rowId = `${name}${symbol}${address}${l1Address}`.toLowerCase();
   return `
 <tr class="h-12 border-y" id="${rowId}">
@@ -60,7 +67,7 @@ function row({ address, chainId, extensions, logoURI, name, symbol }) {
     ${logo({ logoURI, name })}
     <span class="hidden lg:inline overflow-hidden whitespace-nowrap ml-2 text-ellipsis">${name}</span>
   </td>
-  <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${symbol}</td>
+  <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${symbol}${extensions?.oft ? oftLabel : ""}</td>
   <td class="overflow-hidden whitespace-nowrap px-4 py-3 text-ellipsis">${chainName}</td>
   <td class="px-4 py-3">
     ${addressLink(chainId, address)}
