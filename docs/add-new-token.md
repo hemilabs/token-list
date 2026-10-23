@@ -213,9 +213,9 @@ The changes you did in the code will be checked automatically in terms of format
 You can only use the new token you added if you generate a new package version for it and that can be done by running:
 
 ```sh
-pnpm version minor
+pnpm version minor --no-git-tag-version
 ```
 
-This command will increase the minor version by 1 and add a tag to the commit you created in the previous step.
+This command will increase the minor version by 1 without creating a commit or a tag. Commit the change, and tag the release only after the PR is merged, as described in the [README](../README.md#release).
 
 After that you can finally create a PR and, once merged, you have to wait for the new release to be published to use it anywhere you want it.

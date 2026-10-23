@@ -55,5 +55,5 @@ That will trigger the action to publish the new version of the package in NPM.
 
 ```sh
 git tag --sign --message="" v$(jq --raw-output '.version' <package.json)
-git push --tags
+git push origin v$(jq --raw-output '.version' <package.json)
 ```
