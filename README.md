@@ -30,11 +30,13 @@ To add a new token to the list just follow [this guide](./docs/add-new-token.md)
 
 ## Local Setup
 
-This repository uses [pnpm](https://pnpm.io) as the package manager. Enable [Corepack](https://nodejs.org/api/corepack.html) to use the pinned version automatically:
+This repository uses [pnpm](https://pnpm.io) as the package manager. Run this command in the repository root to install the pnpm version that `package.json` pins:
 
 ```sh
-corepack enable
+npx get-pnpm
 ```
+
+Then open a new terminal. For other installation methods, see [pnpm.io/installation](https://pnpm.io/installation).
 
 To install the dependencies, run:
 
