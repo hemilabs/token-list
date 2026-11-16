@@ -85,8 +85,21 @@ const page = ({ name, tokens, version }) => `
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="List of tokens on the Hemi networks.">
+  <meta name="description" content="Explore the tokens on the Hemi networks." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="${prefix}" />
+  <meta property="og:title" content="${name}" />
+  <meta property="og:description" content="Explore the tokens on the Hemi networks." />
+  <meta property="og:image" content="https://framerusercontent.com/assets/k63TVkxaxEkDMdo7zqWW0Xpo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Hemi" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${name}" />
+  <meta name="twitter:description" content="Explore the tokens on the Hemi networks." />
+  <meta name="twitter:image" content="https://framerusercontent.com/assets/k63TVkxaxEkDMdo7zqWW0Xpo.png" />
+  <meta name="twitter:image:alt" content="Hemi" />
   <title>${name}</title>
 
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
